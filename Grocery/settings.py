@@ -36,7 +36,15 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+<<<<<<< HEAD
+<<<<<<< HEAD
+    'django.contrib.staticfiles','grocery_app'
+=======
+    'django.contrib.staticfiles','customer_app'
+>>>>>>> 91f0e756d322337d43d638efe1bc27501be6fda6
+=======
+    'django.contrib.staticfiles','customer_app'
+>>>>>>> 91f0e756d322337d43d638efe1bc27501be6fda6
 ]
 
 MIDDLEWARE = [

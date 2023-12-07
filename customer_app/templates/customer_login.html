@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>customer login page</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{form}}
+        </table>
+        <input type="submit" value="Login">
+    </form>
+    <div>
+        <h4>New User?</h4>
+        <a href="{% url 'customer_app:customer_register' %}"><button>Register</button></a><br><br>
+    </div>
+
+</body>
+</html>
