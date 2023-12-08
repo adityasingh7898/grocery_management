@@ -19,13 +19,5 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    path(route='',view=include('customer_app.urls'),name='grocery')
-=======
-    
->>>>>>> Stashed changes
-=======
-    path(route='',view=include('customer_app.urls'),name='grocery')
->>>>>>> 91f0e756d322337d43d638efe1bc27501be6fda6
+    path(route='',view=include('customer_app.urls'),name='grocery'),s
 ]
