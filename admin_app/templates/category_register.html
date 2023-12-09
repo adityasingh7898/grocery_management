@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Register</title>
+</head>
+<body>
+    
+    <h1>Register page</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <label for="id_name">name</label>
+        <input type="text" name="cat_name" id="id_name">
+
+        <input type="submit" value="Create">
+    </form>
+    <a href="{% url 'product_category:category_list' %}"><button>Category List</button></a>
+
+</body>
+</html>

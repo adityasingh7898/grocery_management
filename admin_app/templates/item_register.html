@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Register</title>
+</head>
+<body>
+
+    <h1>Register page</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <label for="id_name">name</label>
+        <input type="text" name="item_name" id="id_name">
+
+        <label for="id_desc">desc</label>
+        <input type="text" name="p_desc" id="id_desc">
+
+        <label for="id_quantity">desc</label>
+        <input type="text" name="item_qunatity" id="id_quantity">
+
+        <label for="id_price">desc</label>
+        <input type="text" name="price" id="id_price">
+
+        <input type="submit" value="Create">
+    </form>
+    <a href="{% url 'category_items:item_list' %}"><button>Product List</button></a>
+    
+</body>
+</html>
