@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from admin_app.models import product_category,category_item
+from Admin_app.models import product_category,category_item
 from django.http import HttpResponse
 
 # Create your views here.
@@ -37,7 +37,7 @@ def item_register_view(request):
     if request.method=='post':
         print(request)
         print(request.POST)
-        Print(request.POST['name'],request.POST['email'])
+        print(request.POST['name'],request.POST['email'])
         category_item.objects.create(item_id=request.POST['item_id'],
                                 item_name=request.POST['item_name'],
                                 item_desc=request.POST['item_desc'],
@@ -53,6 +53,7 @@ def item_list_view(request):
 
 
 def item_update_view(request,pk):
+    
     if request.method=="POST":
         print(request.POST)
         category_item.objecs.filter(cat_id=pk).update(item_name=request.POST['item_name'],
