@@ -3,10 +3,10 @@ from admin_app.views import category_register_view, category_list_view, category
 
 app_name='admin_app'
 urlpatterns = [
-    path(route='',view=category_register_view,name="register"),
-    path(route='list/',view=category_list_view,name="list"),
-    path(route='update/<int:pk>/',view=category_update_view,name="category_update"),
-    path(route='delete/<int:pk>/',view=category_delete_view,name="category_delete"),
+    path(route='',view=category_register_view,name="category_register"),
+    path(route='category_list/',view=category_list_view,name="category_list"),
+    path(route='category_update/<int:pk>/',view=category_update_view,name="category_update"),
+    path(route='category_delete/<int:pk>/',view=category_delete_view,name="category_delete"),
 
     # ----PRODUCT----
     path(route='p_register',view=item_register_view,name="register"),

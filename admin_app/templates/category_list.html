@@ -18,8 +18,8 @@
             <tr>
                 <td>{{i.cat_id}}</td>
                 <td>{{i.cat_name}}</td>
-                <td><a href="{% url 'product_category:category_update' pk=i.cat_id %}"><button>Update</button></a></td>
-                <td><a href="{% url 'product_category:category_delete' pk=i.cat_id %}"><button>Delete</button></a></td>
+                <td><a href="{% url 'admin_app:category_update' pk=i.cat_id %}"><button>Update</button></a></td>
+                <td><a href="{% url 'admin_app:category_delete' pk=i.cat_id %}"><button>Delete</button></a></td>
 
             </tr>
             {% endfor %}
@@ -30,7 +30,7 @@
     </div>
 
     <div>
-        <a href="{% url 'product_category:category_register' %}"><button>Register page</button></a>
+        <a href="{% url 'admin_app:category_register' %}"><button>Register page</button></a>
     </div>
     
 </body>
