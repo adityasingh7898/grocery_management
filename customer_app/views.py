@@ -34,3 +34,7 @@ def customer_list_view(request):
 @login_required(login_url='/customer_login')
 def customer_home_view(request):
     return render(request=request,template_name='customer_home.html')
+
+def customer_logout_view(request):
+    logout(request)
+    return redirect('/customer_login')
