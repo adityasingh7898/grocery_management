@@ -37,7 +37,7 @@ def item_register_view(request):
     if request.method=='post':
         print(request)
         print(request.POST)
-        Print(request.POST['name'],request.POST['email'])
+        print(request.POST['name'],request.POST['email'])
         category_item.objects.create(item_id=request.POST['item_id'],
                                 item_name=request.POST['item_name'],
                                 item_desc=request.POST['item_desc'],
@@ -53,10 +53,11 @@ def item_list_view(request):
 
 
 def item_update_view(request,pk):
+    
     if request.method=="POST":
         print(request.POST)
         category_item.objecs.filter(cat_id=pk).update(item_name=request.POST['item_name'],
-        item_desc=request.POST[item_desc],item_quantity=request.POST[item_quantity],price=request.POST[price])
+        item_desc=request.POST['item_desc'],item_quantity=request.POST['item_quantity'],price=request.POST['price'])
         return redirect('/cat_items/list')
     return render(request=request,template_name='update.html',context={'data':res})
 
