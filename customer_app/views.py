@@ -27,10 +27,16 @@ def customer_login_view(request):
                 return redirect('/customer_home')
     return render(request=request,template_name='customer_login.html',context={'form':form})
 
+@login_required(login_url='/customer_app/customer_login')
 def customer_list_view(request):
     data = customer_model.objects.all()
     return render(request=request,template_name='customer_list.html',context={'data':data})
 
-@login_required(login_url='/customer_login')
+@login_required(login_url='/customer_app/customer_login')
 def customer_home_view(request):
     return render(request=request,template_name='customer_home.html')
+
+@login_required(login_url='/customer_app/customer_login')
+def customer_logout_view(request):
+    logout(request)
+    return redirect('/customer_login')
