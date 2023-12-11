@@ -59,6 +59,7 @@ def item_update_view(request,pk):
         category_item.objecs.filter(cat_id=pk).update(item_name=request.POST['item_name'],
         item_desc=request.POST['item_desc'],item_quantity=request.POST['item_quantity'],price=request.POST['price'])
         return redirect('/cat_items/list')
+    res=category_item.objects.get(cat_id=pk)
     return render(request=request,template_name='update.html',context={'data':res})
 
 
