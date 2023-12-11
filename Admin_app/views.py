@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from Admin_app.models import product_category,category_item
+from admin_app.models import product_category,category_item
 from django.http import HttpResponse
 
 # Create your views here.

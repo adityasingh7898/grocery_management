@@ -1,7 +1,7 @@
 from django.urls import path
-from Admin_app.views import category_register_view, category_list_view, category_update_view, category_delete_view, item_register_view, item_list_view, item_update_view, item_delete_view
+from admin_app.views import category_register_view, category_list_view, category_update_view, category_delete_view, item_register_view, item_list_view, item_update_view, item_delete_view
 
-app_name='Admin_app'
+app_name='admin_app'
 urlpatterns = [
     path(route='',view=category_register_view,name="register"),
     path(route='list/',view=category_list_view,name="list"),
