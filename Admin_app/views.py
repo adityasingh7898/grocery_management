@@ -7,9 +7,8 @@ from django.http import HttpResponse
 #   ============ CATEGORY Register, List, Update, Delete
 def category_register_view(request):
     if request.method=='POST':
-        product_category.objects.create(cat_name=request.post['category_name'])
-        return redirect('/product_category/list')
-
+        category_item.objects.create(cat_name=request.POST['cat_name'])
+        return redirect('/admin_app/category_list')
     return render(request=request,template_name='category_register.html')
 
 def category_list_view(request):
@@ -21,20 +20,20 @@ def category_update_view(request,pk):
     if request.method=="POST":
         print(request.POST)
         product_category.objects.filter(cat_id=pk).update(cat_name=request.POST['name'])
-        return redirect('/product_category/list')
+        return redirect('/admin_app/category_list')
     return render(request=request,template_name='category_update.html',context={'data':res})
 
 def category_delete_view(request,pk):
     res=product_category.objects.get(cat_id=pk)
     if request.method=='POST':
         res=product_category.objects.get(cat_id=pk).delete()
-        return redirect('/product_category/list')
+        return redirect('/admin_app/category_list')
     return render(request=request,template_name='category_delete.html',context={'data':res})
 
 
 #   ============ (item) PRODUCT Register, List, Update, Delete
 def item_register_view(request):
-    if request.method=='post':
+    if request.method=='POST':
         print(request)
         print(request.POST)
         print(request.POST['name'],request.POST['email'])
@@ -66,5 +65,5 @@ def item_delete_view(request,pk):
     res=category_item.object.get(cat_id=pk)
     if request.method=='POST':
         res=category_item.objects.get(cat_id=pk).delete()
-        return redirect('/category_item/list')
+        return redirect('/admin_app/list')
     return render(request=request,template_name='item_delete.html',context={'data':res})
