@@ -7,7 +7,7 @@ from django.http import HttpResponse
 #   ============ CATEGORY Register, List, Update, Delete
 def category_register_view(request):
     if request.method=='POST':
-        product_category.objects.create(cat_name=request.post['category_name'])
+        product_category.objects.create(cat_name=request.POST['cat_name'])
         return redirect('/product_category/list')
 
     return render(request=request,template_name='category_register.html')
@@ -34,7 +34,7 @@ def category_delete_view(request,pk):
 
 #   ============ (item) PRODUCT Register, List, Update, Delete
 def item_register_view(request):
-    if request.method=='post':
+    if request.method=='POST':
         print(request)
         print(request.POST)
         print(request.POST['name'],request.POST['email'])
