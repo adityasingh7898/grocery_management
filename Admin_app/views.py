@@ -53,7 +53,6 @@ def item_list_view(request):
 
 
 def item_update_view(request,pk):
-    
     if request.method=="POST":
         print(request.POST)
         category_item.objecs.filter(cat_id=pk).update(item_name=request.POST['item_name'],
