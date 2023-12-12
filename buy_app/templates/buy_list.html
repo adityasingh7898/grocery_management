@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <table border="2px solid">
+            <tr>
+                <th>Item_name</th>
+                <th>Quantity</th>
+                <th>Total price</th>
+            </tr>
+            <tr>
+                {%for i in prod_data%}
+                <td>{{i.item_name}}</td>
+                <td>{{i.quantity}}</td>
+                <td>{{i.price}}</td>
+                {%endfor%}
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

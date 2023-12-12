@@ -24,6 +24,7 @@ urlpatterns = [
     path(route='customer_app/',view=include('customer_app.urls'),name='customer_app'),
     path(route='admin_app/',view=include('admin_app.urls'),name='admin_app'),
     path(route='cart/',view=include('cart.urls'),name='cart'),
+    path(route='buy_app/',view=include('buy_app.urls'),name='buy_app'),
 
 ]
 
