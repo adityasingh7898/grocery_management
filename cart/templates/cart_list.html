@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+</head>
+<body>
+    <div>
+        {% if res %}
+        <h2> welcome to {{user}}</h2>
+        <h3>Your cart</h3>
+        <table border="2px solid">
+            <tr>
+                <th>item_id</th>
+                <th>item_name</th>
+                <th>item_price</th>
+                <th>item_quantity</th>
+                <th>Remove</th>
+            </tr>
+            {% for i in res %}
+            <tr>
+                <td>{{i.item_id}}</td>
+                {% for j in prod_data%}
+                    {% if j.item_id == i.item_id %}
+                        <td>{{j.item_name}}</td>
+                        <td>{{j.price}}</td>
+                    {% endif%}
+                {% endfor %}
+                <td><select name="quantity" id="id_quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select></td>
+                <td><a href="{% url 'cart_app:cart_remove' cart_id=i.cart_id %}"> <button>Remove</button></a></td>
+
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <h2>Cart is empty</h2>
+        {% endif %}
+    </div>
+</body>
+</html>

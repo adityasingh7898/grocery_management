@@ -12,7 +12,7 @@ def customer_register_view(request):
         form = customer_register_form(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/customer_login')
+            return redirect('/customer_app/customer_login')
     return render(request=request,template_name='customer_register.html',context={'form':form})
 
 def customer_login_view(request):
@@ -24,7 +24,7 @@ def customer_login_view(request):
                 username=form.cleaned_data['username'],password=form.cleaned_data['password'])
             if user:
                 login(request,user)
-                return redirect('/customer_home')
+                return redirect('/customer_app/customer_home')
     return render(request=request,template_name='customer_login.html',context={'form':form})
 
 def customer_list_view(request):
@@ -39,3 +39,4 @@ def customer_home_view(request):
 def customer_logout_view(request):
     logout(request)
     return redirect('/customer_app/customer_login')
+
