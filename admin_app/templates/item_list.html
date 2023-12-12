@@ -16,6 +16,7 @@
                 <th>desc</th>
                 <th>quantity</th>
                 <th>price</th>
+                <th>Image</th>
             </tr>
             {% for i in data %}
             <tr>
@@ -24,8 +25,9 @@
                 <td>{{i.item_desc}}</td>
                 <td>{{i.item_quantity}}</td>
                 <td>{{i.price}}</td>
-                <td><a href="{% url 'admin_app:item_update' pk=i.cat_id %}"><button>Update</button></a></td>
-                <td><a href="{% url 'admin_app:item_delete' pk=i.cat_id %}"><button>Delete</button></a></td>
+                <td><img src="{{i.img.url}}" alt="no_image"  height="75" width="75"></td>
+                <td><a href="{% url 'admin_app:p_update' pk=i.item_id %}"><button>Update</button></a></td>
+                <td><a href="{% url 'admin_app:p_delete' pk=i.item_id %}"><button>Delete</button></a></td>
 
             </tr>
             {% endfor %}
@@ -36,7 +38,7 @@
     </div>
 
     <div>
-        <a href="{% url'admin_app:item_register' %}"><button>Register page</button></a>
+        <a href="{% url 'admin_app:p_register' %}"><button>Register page</button></a>
     </div>
 
 </body>

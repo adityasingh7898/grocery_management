@@ -1,5 +1,5 @@
 from django.urls import path
-from customer_app.views import customer_register_view,customer_list_view,customer_login_view,customer_home_view
+from customer_app.views import customer_register_view,customer_list_view,customer_login_view,customer_home_view,customer_logout_view
 
 app_name = 'customer_app'
 urlpatterns=[

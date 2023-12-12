@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
-from admin_app.models import product_category,category_item
+from admin_app.models import category_items,product_item
+from admin_app.forms import product_form
 from django.http import HttpResponse
 
 # Create your views here.
@@ -7,63 +8,60 @@ from django.http import HttpResponse
 #   ============ CATEGORY Register, List, Update, Delete
 def category_register_view(request):
     if request.method=='POST':
-        category_item.objects.create(cat_name=request.POST['cat_name'])
+        category_items.objects.create(cat_name=request.POST['cat_name'])
         return redirect('/admin_app/category_list')
     return render(request=request,template_name='category_register.html')
 
 def category_list_view(request):
-    res=product_category.objects.all()
+    res=category_items.objects.all()
     return render(request=request,template_name='category_list.html',context={'data':res})
 
 def category_update_view(request,pk):
-    res=product_category.objects.get(cat_id=pk)
+    res=category_items.objects.get(cat_id=pk)
     if request.method=="POST":
         print(request.POST)
-        product_category.objects.filter(cat_id=pk).update(cat_name=request.POST['name'])
+        category_items.objects.filter(cat_id=pk).update(cat_name=request.POST['name'])
         return redirect('/admin_app/category_list')
     return render(request=request,template_name='category_update.html',context={'data':res})
 
 def category_delete_view(request,pk):
-    res=product_category.objects.get(cat_id=pk)
+    res=category_items.objects.get(cat_id=pk)
     if request.method=='POST':
-        res=product_category.objects.get(cat_id=pk).delete()
+        res=category_items.objects.get(cat_id=pk).delete()
         return redirect('/admin_app/category_list')
     return render(request=request,template_name='category_delete.html',context={'data':res})
 
 
 #   ============ (item) PRODUCT Register, List, Update, Delete
 def item_register_view(request):
-    if request.method=='POST':
-        print(request)
-        print(request.POST)
-        print(request.POST['name'],request.POST['email'])
-        category_item.objects.create(item_id=request.POST['item_id'],
-                                item_name=request.POST['item_name'],
-                                item_desc=request.POST['item_desc'],
-                                item_quantity=request.POST['item_quantity'],
-                                price=request.POST['price'],)
-        return redirect('/category_item/list')
-
-    return render(request=request,template_name='item_register.html') 
+    form=product_form()
+    if request.method=='POST' and request.FILES:
+        form=product_form(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('/admin_app/p_list/')
+    return render(request=request,template_name='item_register.html',context={'form':form}) 
 
 def item_list_view(request):
-    res=category_item.objects.all()
+    res=product_item.objects.all()
     return render(request=request,template_name='item_list.html',context={'data':res})
 
 
 def item_update_view(request,pk):
+    res=product_item.objects.get(item_id=pk)
+    form=product_form(instance=res)
     if request.method=="POST":
-        print(request.POST)
-        category_item.objecs.filter(cat_id=pk).update(item_name=request.POST['item_name'],
-        item_desc=request.POST['item_desc'],item_quantity=request.POST['item_quantity'],price=request.POST['price'])
-        return redirect('/cat_items/list')
-    res=category_item.objects.get(cat_id=pk_list)
-    return render(request=request,template_name='update.html',context={'data':res})
+        res=product_item.objects.get(item_id=pk)
+        form=product_form(request.POST,request.FILES, instance=res)
+        if form.is_valid():
+            form.save()
+            return redirect('/admin_app/p_list')
+    return render(request=request,template_name='item_update.html',context={'form':form})
 
 
 def item_delete_view(request,pk):
-    res=category_item.object.get(cat_id=pk)
+    res=product_item.objects.get(item_id=pk)
     if request.method=='POST':
-        res=category_item.objects.get(cat_id=pk).delete()
-        return redirect('/admin_app/list')
+        res=product_item.objects.get(item_id=pk).delete()
+        return redirect('/admin_app/p_list')
     return render(request=request,template_name='item_delete.html',context={'data':res})

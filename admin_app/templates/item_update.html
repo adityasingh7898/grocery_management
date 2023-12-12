@@ -9,25 +9,16 @@
 
     <div>
         <h1>Update Page</h1>
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <label for="id_name">Name</label>
-            <input type="text" name="name" id="id_name" value="{{data.item_name}}"><br>
-
-            <label for="id_desc">Desc</label>
-            <input type="text" name="desc" id="id_desc" value="{{data.item_desc}}">
-
-            <label for="id_quantity">Quantity</label>
-            <input type="text" name="quantity" id="id_quantit" value="{{data.item_quantity}}">
-
-            <label for="id_price">price</label>
-            <input type="text" name="price" id="id_price" value="{{data.price}}">
-
+           <table>
+            {{form}}
+           </table>
         <input type="submit" value="Update">
         </form>
     </div>
     <div>
-        <a href="{% url 'admin_app:item_list' %}"><button>List Page</button></a>
+        <a href="{% url 'admin_app:p_list' %}"><button>List Page</button></a>
     </div>
     
 </body>

@@ -8,24 +8,14 @@
 <body>
 
     <h1>Register page</h1>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-
-        <label for="id_name">name</label>
-        <input type="text" name="item_name" id="id_name">
-
-        <label for="id_desc">desc</label>
-        <input type="text" name="p_desc" id="id_desc">
-
-        <label for="id_quantity">desc</label>
-        <input type="text" name="item_qunatity" id="id_quantity">
-
-        <label for="id_price">desc</label>
-        <input type="text" name="price" id="id_price">
-
+       <table>
+        {{form}}
+       </table>
         <input type="submit" value="Create">
     </form>
-    <a href="{% url 'admin_app:item_list' %}"><button>Product List</button></a>
+    <a href="{% url 'admin_app:p_list' %}"><button>Product List</button></a>
     
 </body>
 </html>
