@@ -10,3 +10,7 @@ class customer_model(User):
     dob = models.DateField()
     gender = models.CharField(max_length=10,choices=[['Male','Male'],['Female','Female'],['other','other']])
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
