@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP verification</title>
+</head>
+<body>
+    <h3>OTP verification</h3>
+    <form action="" method="post">
+        {%csrf_token%}
+        <table>
+            <tr>
+                <th>
+                    <label for="id_otp">Enter OTP:</label>
+                    <input type="number" name="otp" id="id_otp">
+                </th>
+            </tr>
+        </table>
+        <input type="submit" value="Verify">
+    </form>
+</body>
+</html>

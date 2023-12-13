@@ -27,7 +27,7 @@
                 <td>{{i.price}}</td>
                 <td><img src="{{i.img.url}}" alt="no_image"  height="75" width="75"></td>
                 <td><a href="{% url 'cart_app:cart_register' p_id=i.item_id cust_id=user.id iname=i.item_name iprice=i.price %}"><button>Add cart</button></a></td>
-
+                
                 <td><a href="{% url 'admin_app:p_update' pk=i.item_id %}"><button>Update</button></a></td>
                 <td><a href="{% url 'admin_app:p_delete' pk=i.item_id %}"><button>Delete</button></a></td>
 

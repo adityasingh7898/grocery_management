@@ -9,18 +9,22 @@
     <div>
         <table border="2px solid">
             <tr>
+                <th>Cust_id</th>
+                <th>Item_id</th>
                 <th>Item_name</th>
                 <th>Quantity</th>
-                <th>Total price</th>
+                
             </tr>
+            {%for i in prod_data%}
             <tr>
-                {%for i in prod_data%}
+                <td>{{i.cust_id}}</td>
+                <td>{{i.item_id}}</td>
                 <td>{{i.item_name}}</td>
                 <td>{{i.quantity}}</td>
-                <td>{{i.price}}</td>
-                {%endfor%}
             </tr>
+            {%endfor%}
         </table>
+        <h3>Total_price:  {{total_price.price__sum}}</h3>
     </div>
 </body>
 </html>

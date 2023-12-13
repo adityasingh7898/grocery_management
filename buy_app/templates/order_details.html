@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+</head>
+<body>
+    {%csrf_token%}
+    <table border="2">
+        <tr>
+            <th>order_id</th>
+            <th>order_date</th>
+            <th>cust_name</th>
+            <th>cust_phone</th>
+            <th>cust_address</th>
+            <th>Items
+            </th>
+            <th>Total_price</th>
+        </tr>
+        {%for i in cust_details%}
+        <tr>
+            <td>{{i.buy_id}}</td>
+            <td>{{i.order_date}}</td>
+            <td>{{i.cust_name}}</td>
+            <td>{{i.cust_phone}}</td>
+            <td>{{i.cust_address}}</td>
+            <td>
+                <table border="2">
+                    <tr>
+                        <th>Item_name</th>
+                        <th>Item_price</th>
+                        <th>Quantity</th>
+                    </tr>
+                {% for j in items_details %}
+                {% if j.buy_id == i.buy_id %}
+               
+                    <tr>
+                        <td>{{j.item_name}}</td>
+                        <td>{{j.item_price}}</td>
+                        <td>{{j.quantity}}</td>
+                    </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+            </td>
+            <td>{{i.total_price}}</td>
+        </tr>
+        {%endfor%}
+        
+    </table>
+</body>
+</html>

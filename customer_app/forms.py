@@ -2,6 +2,7 @@ from django import forms
 from customer_app.models import customer_model
 from django.contrib.auth.hashers import make_password
 import re
+from customer_app.validators import clean_enter_new_password
 
 class customer_register_form(forms.ModelForm):
     repassword = forms.CharField(widget=forms.PasswordInput)
@@ -117,3 +118,24 @@ class customer_login_form(forms.Form):
         return pwd   
 
 
+class change_pwd_form(forms.Form):
+    enter_new_password=forms.CharField(widget=forms.PasswordInput,validators=[clean_enter_new_password])
+    re_enter_password=forms.CharField(widget=forms.PasswordInput)
+
+    def clean_re_enter_password(self):
+        password = self.cleaned_data['re_enter_password']
+        if not (password[0].isupper()):
+            raise forms.ValidationError('re entered password starts with uppercase')
+        if len(password) < 3:
+            raise forms.ValidationError('re entered password should be min 3 characters')
+        if len(password) > 15:
+            raise forms.ValidationError('re entered password should be max 15 characters')
+        if len(re.findall('[0-9]',password)) == 0:
+            raise forms.ValidationError('re entered password atleast 1 numeric character')
+        if len(re.findall('[^0-9a-zA-Z]',password)) == 0:
+            raise forms.ValidationError('re entered password atleast 1 special character')
+        if len(re.findall('[a-z]',password)) == 0:
+            raise forms.ValidationError('re entered password atleast 1 lowercase character')
+        if self.cleaned_data['enter_new_password']!=password:
+            raise forms.ValidationError('New password and re-entered password should be same as password')
+        return password   
