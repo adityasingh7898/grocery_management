@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#pContainer{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-image: url(C:\Users\91897\Documents\GitHub\grocery_management\static\images\Grocery_Management_bg_image.png); */
+    background-size: 100% 100vh;
+}
+.pContainerChilren{
+    display: flex;
+    flex-basis:49.98%;
+}
+#pContainerChild2{
+    flex-basis: 0%;
+    border: 0.5px solid orangered;
+    height: 80%; 
+} 
+#project_brand__logo{
+    width: 50%;
+    
+}
+#pContainerChild1{
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    font-size: xx-large;
+}
+
+#pContainerChild3{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+#continueAsForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.continueAsButtons{
+    width:220px;
+    font-size: large;
+    margin-top: 15%;
+    padding: 7%;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-family: 'Kanit', sans-serif;
+    background-color: rgb(182, 134, 43);
+}
+#continueAsText{
+    font-size: 50px;
+    color:rgba(248, 3, 125, 0.948);
+    font-family: 'Kanit', sans-serif;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 7px black;
+}
+#cutomerButton{
+    margin-top: 5%;
+}
