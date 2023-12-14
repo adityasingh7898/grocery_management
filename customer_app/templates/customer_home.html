@@ -7,8 +7,20 @@
 </head>
 <body>
     <h1>Welcome to Grocery Management</h1>
-    <a href="{% url 'admin_app:p_list' %}"><button>Products</button></a>
+    <!-- <a href="{% url 'admin_app:p_list' %}"><button>Products</button></a> -->
     <a href="{% url 'cart_app:cart_list' %}"><button>Cart</button></a>
     <a href="{% url 'customer_app:customer_logout'%}"><button>Logout</button></a>
+
+    <form action="{% url 'admin_app:p_details' %}" method="post">
+        {% csrf_token %}
+    <select name="cat_list" id="">
+        {{res}}
+        {% for i in res %}
+        <option value="{{i.cat_id}}" > {{i.cat_name}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="open link">
+</form>
+
 </body> 
 </html>

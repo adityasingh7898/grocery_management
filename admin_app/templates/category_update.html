@@ -12,13 +12,16 @@
         <form action="" method="post">
             {% csrf_token %}
             <label for="id_name">Name</label>
-            <input type="text" name="name" id="id_name" value="{{data.cat_name}}"><br>
+            <input type="text" name="name" id="id_name" value="{{data.cat_name}}">
 
         <input type="submit" value="Update">
         </form>
-    </div>
+    </div><br>
     <div>
         <a href="{% url 'admin_app:category_list' %}"><button>List Page</button></a>
+        <a href="{% url 'admin_app:category_register' %}"><button>To Add Category</button></a>
+        <a href="{% url 'admin_app:p_register' %}"><button>To Add Product</button></a>
+        
     </div>
     
 </body>

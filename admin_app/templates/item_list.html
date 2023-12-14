@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product List</title>
 </head>
-<body>
-    
+<body>{% for i in messages %}
+    <h2>{{i}}</h2>
+    {% endfor %}
+    <h3>Items List</h3>
     <div>
         {% if data %}
         <table border="2px solid">
@@ -37,10 +39,11 @@
         {% else %}
         <h2>Data is not found</h2>
         {% endif %}
-    </div>
+    </div><br>
 
     <div>
-        <a href="{% url 'admin_app:p_register' %}"><button>Register page</button></a>
+        <a href="{% url 'admin_app:category_register' %}"><button>To Add Category</button></a>
+        <a href="{% url 'admin_app:p_register' %}"><button>To Add Product</button></a>
     </div>
 
 </body>

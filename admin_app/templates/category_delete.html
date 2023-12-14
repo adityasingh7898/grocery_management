@@ -12,10 +12,14 @@
         <h1>Are you sure to delete record id: {{data.cat_id}} name:{{data.cat_name}}</h1>
         <form action="" method="post">
             {% csrf_token %}
-            <input type="submit" value="delete">
+            <input type="submit" value="delete"><br>
         </form>
     </div>
-    <div><a href="{% url 'admin_app:category_list' %}"><button>Category List</button></a>
+    <div>
+        <a href="{% url 'admin_app:category_list' %}"><button>Category List</button></a>
+        <a href="{% url 'admin_app:category_register' %}"><button>To Add Category</button></a>
+        <a href="{% url 'admin_app:category_register' %}"><button>To Add Category</button></a>
+        <a href="{% url 'admin_app:p_list' %}"><button>Product List</button></a>
     </div>
 
 </body>

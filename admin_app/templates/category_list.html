@@ -6,6 +6,9 @@
     <title>Category List</title>
 </head>
 <body>
+    {% for i in messages %}
+    <h2>{{i}}</h2>
+    {% endfor %}
 
     <div>
         {% if data %}
@@ -27,10 +30,11 @@
         {% else %}
         <h2>Data is not found</h2>
         {% endif %}
-    </div>
+    </div><br>
 
     <div>
-        <a href="{% url 'admin_app:category_register' %}"><button>Register page</button></a>
+        <a href="{% url 'admin_app:category_register' %}"><button>To Add Category</button></a>
+        <a href="{% url 'admin_app:p_register' %}"><button>To Add Product</button></a>
     </div>
     
 </body>
