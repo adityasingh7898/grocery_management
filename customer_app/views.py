@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
+from admin_app.models import category_items
 from customer_app.forms import customer_register_form,customer_login_form,change_pwd_form
 from django.contrib.auth import authenticate,login,logout
 from customer_app.models import customer_model
@@ -39,7 +40,9 @@ def customer_list_view(request):
 
 @login_required(login_url='/customer_app/customer_login')
 def customer_home_view(request):
-    return render(request=request,template_name='customer_home.html')
+    res=category_items.objects.all()
+    print(res)
+    return render(request=request,template_name='customer_home.html',context={'res':res})
 
 @login_required(login_url='/customer_app/customer_login')
 def customer_logout_view(request):
