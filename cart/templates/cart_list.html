@@ -4,13 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cart</title>
+
+    <style>
+        button{
+            background-color: rgb(95, 161, 75);
+            color: black;
+            border-radius: 5px;
+            padding: 8px;
+            
+        }
+        #buy_btn{
+            margin-top: 2%;
+            padding: 10px;
+        }
+    </style>
 </head>
+
 <body>
     <div>
         {% if res %}
         <h2> welcome to {{user}}</h2>
         <h3>Your cart</h3>
-        <table border="2px solid">
+        <table border="2px solid"  cellpadding="4px">
             <tr>
                 <th>item_id</th>
                 <th>item_name</th>
@@ -27,12 +42,12 @@
                     {% endif%}
                 {% endfor %}
 
-                <td><a href="{% url 'cart_app:cart_remove' cart_id=i.cart_id %}"> <button>Remove</button></a></td>
+                <td><a href="{% url 'cart_app:cart_remove' cart_id=i.cart_id %}"> <button >Remove</button></a></td>
             </tr>
             {% endfor %}
             <h3>Total_price:  {{total_price.price__sum}}</h3>
         </table>
-        <td><a href="{% url 'buy_app:buy_register' total_price=total_price.price__sum %}"><button>Buy now</button></a></td>
+        <td><a href="{% url 'buy_app:buy_register' total_price=total_price.price__sum %}"><button id="buy_btn">Buy now</button></a></td>
         {% else %}
         <h2>Cart is empty</h2>
         {% endif %}

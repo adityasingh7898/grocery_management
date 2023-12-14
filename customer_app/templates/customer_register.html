@@ -4,15 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Register</title>
+
+    <style>
+        *{
+            /* background-color: rgb(112, 112, 172); */
+            text-align: center;
+        }
+        form{
+            background-color: rgb(163,163,227);
+            margin-left: 33%;
+            align-items: center;
+            color: aliceblue;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px rgb(111, 115, 232);
+            width: 500px;
+            height: 380px;
+            padding-top: 50px;
+            
+        }
+        button{
+            width: 100px;
+            height: 30px;
+            border-radius: 5px;
+            background-color: rgb(169, 38, 38);
+        }
+        #f_table{
+            background-color:rgb(163, 163, 227); ;
+            color: black;
+        }
+        h1{
+            text-shadow: 3px 3px 10px black;
+        }
+    </style>
 </head>
 <body>
     <h1>Customer Register</h1>
     <form action="" method="post">
         {%csrf_token%}
-        <table>
+        <table id="f_table">
             {{form}}
         </table>
-        <input type="submit" value="Register">
+        <input type="submit" value="Register" style="margin-top: 20px; background-color:rgb(201, 171, 74); font-size: 15px; border-radius: 10px; padding: 5px;">
     </form>
     <div>
         <h4>Alredy User?</h4>
