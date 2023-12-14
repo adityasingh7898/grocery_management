@@ -6,23 +6,25 @@
     <title>customer login page</title>
 
     <style>
-        *{
-            align-items: center;
-            text-align: center;
-            background-color: blue;
-        }
         form{
-            background-color: white;
+            /* background-color:aquamarine; */
+            /* text-align: center; */
+
         }
-        table{
-            background-color: white;
+        #table_form{
+            padding: 10px;
+            border: 5px solid;
+            /* padding-left: 470px; */
+            align-items: center;
+            margin-top: 10%;
+            
         }
     </style>
 </head>
 <body>
     <form action="" method="post">
         {% csrf_token %}
-        <table>
+        <table id="table_form">
             {{form}}
         </table>
         <input type="submit" value="Login">
