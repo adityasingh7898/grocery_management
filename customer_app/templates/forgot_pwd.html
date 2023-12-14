@@ -1,17 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forgot password</title>
-</head>
-<body>
-    <h1>Forgot password page</h1>
-    <form action="" method="post">
-        {%csrf_token%}
-        <label for="id_mail">Enter Email:</label>
-        <input type="email" name="email" id="id_mail"><br>
-        <input type="submit" value="Sent OTP">
-    </form>
-</body>
-</html>
+{% extends 'base_login.html' %}
+
+{% block title %}
+<title>Forgot Password</title>
+{% endblock %}
+
+
+{% block body_title %}
+<h1 style="text-align: center;">Forgot Password Page</h1>
+{% endblock %}
+
+{% block form %}
+    <label for="id_mail">Enter Email:</label>
+    <input type="email" name="email" id="id_mail"><br>
+    <input type="submit" value="Sent OTP">
+{% endblock %}
+
+{% block button %}
+        <input id="submitbutton" type="submit" value="Forgot" >
+{% endblock %}
+
+
+{% block foot %}
+    <div class="div2">
+        <h4>New User? <a class="register" href="{% url 'customer_app:customer_register' %}"><button  id="Register">Register</button></a></h4>
+        <h4>Existing User? <a class="login" href="{% url 'customer_app:customer_login' %}"><button  id="Login">Login</button></a></h4>
+    </div>
+{% endblock %}
