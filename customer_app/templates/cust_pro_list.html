@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product List</title>
+    <style>
+        #h{
+           
+        }
+
 </head>
 <body>{% for i in messages %}
     <h2>{{i}}</h2>
     {% endfor %}
-    <h3>Items List</h3>
+    <h3 id="h">Items List</h3>
     <div>
         {% if data %}
         <table border="2px solid">
