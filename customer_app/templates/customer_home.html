@@ -111,7 +111,7 @@
             padding-top: 3em;
         }
         #head-title{
-            padding-top: 5em;
+            padding-top: 8em;
         }
         .head-item img {
             width: 100%;
@@ -162,13 +162,13 @@
                             <a href="#"> Option 4 </a>
                         </div>
                 </li>
-                <li>Product</li>
+                <li><a href="{% url 'admin_app:p_list' %}"><button>Products</button></a></li>
                 <li>Contact</li>
             </ul>
         </div>
         <div id="nav-icons">
             <ul>
-                <li><i class="fa-solid fa-cart-shopping"></i></li>
+                <li><a href="{% url 'cart_app:cart_list' %}"><button><i class="fa-solid fa-cart-shopping"></i></button></a></li>
                 <li>
                     <div class="dropdown">
                         <button onclick="profile_show_hide()" class="button"><i class="fa-solid fa-user"></i>
@@ -176,10 +176,8 @@
 
                         <!-- dropdown list items will show when we click the drop button -->
                         <div id="profile-items">
-                            <a href="#"> Option 1 </a>
-                            <a href="#"> Option 2 </a>
-                            <a href="#"> Option 3 </a>
-                            <a href="#"> Option 4 </a>
+                            <a href="#"></a>
+                            <a href="{% url 'customer_app:customer_login' %}">Logout</a>
                         </div>
                 </li>
             </ul>
