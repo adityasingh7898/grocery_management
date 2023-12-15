@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category List</title>
+</head>
+<body>
+    {% for i in messages %}
+    <h2>{{i}}</h2>
+    {% endfor %}
+
+    <div>
+        {% if data %}
+        <table border="2px solid">
+            <tr>
+                <th>id</th>
+                <th>name</th>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{i.cat_id}}</td>
+                <td>{{i.cat_name}}</td>
+                
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <h2>Data is not found</h2>
+        {% endif %}
+    </div><br>
+    
+</body>
+</html>

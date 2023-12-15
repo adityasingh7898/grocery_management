@@ -165,7 +165,7 @@
                 <li><a href="">Home</a></li>
                 <li>
                     <div class="dropdown">
-                        <li><a href="{% url 'admin_app:category_list' %}">Category</a></li>
+                        <li><a href="{% url 'customer_app:cust_category_list' %}">Category</a></li>
 
                         <!-- dropdown list items will show when we click the drop button -->
                         <div id="list-items">
@@ -175,7 +175,7 @@
                             <a href="#"> Option 4 </a>
                         </div>
                 </li>
-                <li><a href="{% url 'admin_app:p_list' %}">Products</a></li>
+                <li><a href="{% url 'customer_app:pro_item_list' %}">Products</a></li>
                 <li><a href="">Contact</a></li>
             </ul>
         </div>
@@ -184,8 +184,7 @@
                 <li><a href="{% url 'cart_app:cart_list' %}"><i class="fa-solid fa-cart-shopping"></i></a></li>
                 <li>
                     <div class="dropdown">
-                        <button onclick="profile_show_hide()" class="button"><i class="fa-solid fa-user"></i>
-                        </button>
+                        <button onclick="profile_show_hide()" class="button"><i class="fa-solid fa-user"> </i> </button>
 
                         <!-- dropdown list items will show when we click the drop button -->
                         <div id="profile-items">
@@ -206,7 +205,7 @@
             <div id="head-title">
                 <h3>Fresh and Organic</h3>
                 <h1>Your Daily Need <br> Product</h1>
-                <a href="{% url 'admin_app:p_list' %}"><button id="start-btn">Get Started</button></a>
+                <a href="{% url 'customer_app:pro_item_list' %}"><button id="start-btn">Get Started</button></a>
             </div>
         </div>
     </div>
