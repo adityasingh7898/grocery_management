@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from admin_app.models import category_items
+from admin_app.models import category_items,product_item
 from customer_app.forms import customer_register_form,customer_login_form,change_pwd_form
 from django.contrib.auth import authenticate,login,logout
 from customer_app.models import customer_model
@@ -42,6 +42,14 @@ def customer_login_view(request):
 def customer_list_view(request):
     data = customer_model.objects.all()
     return render(request=request,template_name='customer_list.html',context={'data':data})
+
+def cust_category_list_view(request):
+    res=category_items.objects.all()
+    return render(request=request,template_name='cust_category_list.html',context={'data':res})
+# product list
+def pro_item_list_view(request):
+    res=product_item.objects.all()
+    return render(request=request,template_name='cust_pro_list.html',context={'data':res})
 
 @login_required(login_url='/customer_app/customer_login')
 def customer_home_view(request):

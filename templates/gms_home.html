@@ -10,7 +10,12 @@
 <style>
     #pContainer{
         background-image: url("../static/images/Grocery_Management_bg_image.png");
+    } 
+    .gro{
+        font-size:200%;
+        color:rgba(248, 3, 125, 0.948);
     }
+    
 </style>
 
 <!-- below is the external css link of google font website-->
@@ -40,7 +45,10 @@
 <body>
     
     <div class="" id="pContainer">
-        <section class="pContainerChilren" id="pContainerChild1"><img class="" id="project_brand__logo" src="{% static 'images/gms.jpg' %}" alt="project_brand__logo"></section>
+        <section class="pContainerChilren" id="pContainerChild1">
+            {% comment %} <img class="logo" id="project_brand__logo" src="{% static 'images/gro.jpg' %}" alt="project_brand__logo" > {% endcomment %}
+        <h1 id="gms"><span class="gro">G</span>rocery <br><span class="gro">M</span>anagement <br><span class="gro">S</span>ystem</h1>
+        </section>
         <section class="pContainerChilren" id="pContainerChild2"></section>
         <section class="pContainerChilren" id="pContainerChild3"><h1 id="continueAsText">CONTINUE AS</h1>
         <!-- <form action="" id="continueAsForm"> -->
