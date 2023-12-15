@@ -35,9 +35,9 @@ def customer_login_view(request):
             if user:
                 login(request,user)
                 messages.success(request,"Login Successful")
-                return redirect('/customer_app/customer_home')
-        el
-    return render(request=request,template_name='customer_login.html',context={'form':form})
+                return redirect('/customer_app/login_demo')
+        
+    return render(request=request,template_name='login_demo.html',context={'form':form})
 
 def customer_list_view(request):
     data = customer_model.objects.all()
@@ -91,3 +91,19 @@ def change_pwd_view(request,pk):
                 customer_model.objects.filter(id=pk).update(password=make_password(form.cleaned_data['enter_new_password']))
                 return redirect('/customer_app/customer_login')
     return render(request=request,template_name='create_pwd.html',context={'form':form})
+
+
+
+def login_demo_view(request):
+    form=customer_login_form()
+    # print(form)
+    if request.method=='POST':
+        form=customer_login_form(request.POST)
+        if form.is_valid():
+            user=authenticate(
+                username=form.cleaned_data['username'],password=form.cleaned_data['password'])
+            if user:
+                login(request,user)
+                messages.success(request,"Login Successful")
+                return redirect('/customer_app/customer_home')
+    return render(request=request,template_name='login_demo.html',context={'form':form})

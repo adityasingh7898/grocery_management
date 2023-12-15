@@ -1,0 +1,60 @@
+<!-- below is the html code present for page2 of grocery manager project -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSP-Grocery Manager</title>
+{% load static %}
+
+<!-- below is the external css document link our project-->
+<link rel="stylesheet" href="{% static 'css/login_demo.css'%}">
+
+
+
+<!-- below is the external css link of google font website-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@500&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+
+
+<!-- the below link is to apply favicon -->
+<link rel="icon" href="./project_brand__logo.png">
+
+
+<!-- below is font awsome link -->
+      <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
+
+
+
+<!-- below is external js document link of our project -->
+<script src="./JSP-GROCERY MANAGER PROJECT JS DOCUMENT.JS">
+
+</script>
+
+
+
+
+</head>
+<body>
+    
+    <div class="" id="pContainer">
+        <section class="pContainerChilren" id="pContainerChild1"><img class="" id="project_brand__logo" src="./project_brand__logo.png" alt="project_brand__logo"><h1 class="" id="brand_name_text"><span class="orangeColorSpans">J</span>SP<span class="orangeColorSpans">-</span><span class="orangeColorSpans">G</span>rocery <span class="orangeColorSpans">M</span>anager</h1></section>
+        <section class="pContainerChilren" id="pContainerChild2"></section>
+        <section class="pContainerChilren" id="pContainerChild3"><h1 id="custOradminLoginText">CUSTOMER/ADMIN-LOGIN</h1>
+        <form action="" id="continueAsForm" method="post">
+            {% csrf_token %}
+            {{form}}
+            <a href="{% url 'customer_app:customer_home' %}"><button type="submit" class="continueAsButtons" id="loginButton">LOGIN</button></a>
+        </form>
+        </section>
+    </div>
+
+</body>
+</html>
+

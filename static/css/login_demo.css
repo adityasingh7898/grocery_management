@@ -1,0 +1,135 @@
+/*below is css code of page1 (main page / welcome page) JSP-grocery Manager project*/
+*{
+    margin: 0;
+    padding: 0;
+}
+#pContainer{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./Grocery_Management_bg_image.png);
+    background-size: 100% 100vh;
+}
+.pContainerChilren{
+    display: flex;
+    flex-basis:49.98%;
+}
+#pContainerChild2{
+    flex-basis: 0%;
+    border: 0.5px solid orangered;
+    height: 80%;
+}
+#project_brand__logo{
+    width: 40%;
+}
+#pContainerChild1{
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    font-size: xx-large;
+}
+#brand_name_text{
+    color: rgb(0, 255, 0);
+    font-family: 'Noto Sans HK', sans-serif;
+    text-shadow: 3px 3px 7px black;
+    letter-spacing: 3px;
+}
+.orangeColorSpans{
+    color: rgb(255, 136, 0);
+}
+#pContainerChild3{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#continueAsForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.continueAsButtons{
+    width:220px;
+    font-size: large;
+    margin-top: 10%;
+    padding: 7%;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-family: 'Kanit', sans-serif;
+    background-color: rgb(255, 96, 96);
+}
+.continueAsButtons:hover{
+    width:220px;
+    font-size: 21px;
+    margin-top: 10%;
+    padding: 7%;
+    border-radius: 10px;
+    text-align: center;
+    color: black;
+    font-family: 'Kanit', sans-serif;
+    background-color: rgb(247, 156, 156);
+}
+#continueAsText{
+    font-size: 50px;
+    color:rgb(0, 255, 0) ;
+    font-family: 'Kanit', sans-serif;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 7px black;
+}
+#cutomerButton{
+    margin-top: 5%;
+}
+#loginButton{
+    background-color: rgb(99, 99, 99);
+    width: 120px;
+    padding: 2%;
+    margin-top: 22%;
+    border-radius: 3px;
+}
+#loginButton:hover{
+    background-color: rgb(188, 185, 185);
+    width: 120px;
+    padding: 2%;
+    margin-top: 22%;
+    border-radius: 3px;
+    color: black;
+    font-size: 23px;
+}
+.loginInputs{
+    width:75%;
+    font-size: large;
+    padding: 7%;
+    border-radius: 10px;
+    text-align: left;
+    color: black;
+    font-family: 'Kanit', sans-serif;
+    border: none;
+    background-color: transparent;
+    
+}
+.loginInputsSpans{
+    margin-top:10%;
+    display: flex;
+    align-items: center;
+    width:150%;
+    border: grey ridge ;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.501);
+}
+
+.iconnn{
+    font-size: 180%;
+    color: rgb(82, 81, 81);
+}
+#custOradminLoginText{
+    font-size: 40px;
+    color:rgb(0, 255, 0) ;
+    font-family: 'Kanit', sans-serif;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 7px black;
+}
+
+

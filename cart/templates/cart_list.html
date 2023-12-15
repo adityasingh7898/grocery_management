@@ -17,6 +17,9 @@
             margin-top: 2%;
             padding: 10px;
         }
+        #table1{
+            background-color: aqua;
+        }
     </style>
 </head>
 
@@ -25,8 +28,8 @@
         {% if res %}
         <h2> welcome to {{user}}</h2>
         <h3>Your cart</h3>
-        <table border="2px solid"  cellpadding="4px">
-            <tr>
+        <table border="1px solid" cellpadding="4px">
+            <tr id="table1">
                 <th>item_id</th>
                 <th>item_name</th>
                 <th>item_price</th>

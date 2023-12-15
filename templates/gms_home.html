@@ -40,12 +40,12 @@
 <body>
     
     <div class="" id="pContainer">
-        <section class="pContainerChilren" id="pContainerChild1"><!--<img class="" id="project_brand__logo" src="{% static 'images/gms.jpg' %}" alt="project_brand__logo">--></section>
+        <section class="pContainerChilren" id="pContainerChild1"><img class="" id="project_brand__logo" src="{% static 'images/gms.jpg' %}" alt="project_brand__logo"></section>
         <section class="pContainerChilren" id="pContainerChild2"></section>
         <section class="pContainerChilren" id="pContainerChild3"><h1 id="continueAsText">CONTINUE AS</h1>
         <!-- <form action="" id="continueAsForm"> -->
-            <a href="{% url 'customer_app:customer_login' %}"><button class="continueAsButtons" id="cutomerButton">CUSTOMER</button></a>
-            <a href="{% url 'admin_app:category_register' %}"><button class="continueAsButtons" id="adminButton">ADMIN</button></a>
+            <a href="{% url 'customer_app:customer_login' %}"><button class="continueAsButtons" id="cutomerButton">LOGIN</button></a>
+            <a href="{% url 'customer_app:customer_register' %}"><button class="continueAsButtons" id="adminButton">REGISTER</button></a>
         <!-- </form> -->
         </section>
     </div>
