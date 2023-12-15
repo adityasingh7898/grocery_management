@@ -96,7 +96,7 @@ def change_pwd_view(request,pk):
 
 def login_demo_view(request):
     form=customer_login_form()
-    # print(form)
+    print(form)
     if request.method=='POST':
         form=customer_login_form(request.POST)
         if form.is_valid():

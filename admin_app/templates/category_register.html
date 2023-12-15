@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category Register</title>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
 <body>
     
@@ -17,9 +20,11 @@
         <input type="submit" value="Add Category">
     </form>
     <h3>List of Categories and Products:</h3>
-    <a href="{% url 'admin_app:category_list' %}"><button>Category List</button></a>
-    <a href="{% url 'admin_app:p_register' %}"><button>Add Product</button></a>
-    <a href="{% url 'admin_app:p_list' %}"><button>Product List</button></a>
+    <a class="btn btn-primary" href="{% url 'admin_app:category_list' %}" role="button">Category List</a>
+    <a class="btn btn-primary" href="{% url 'admin_app:p_register' %}" role="button">Add Product</a>
+    <a class="btn btn-primary" href="{% url 'admin_app:p_list' %}" role="button">Product List</a>
+
+   
 
 </body>
 </html>

@@ -84,7 +84,7 @@
             display: none;
             position: relative;
             background-color: white;
-            width: 150px;
+            width: 120px;
         }
     
         /* provide css to list items */
@@ -94,8 +94,12 @@
             border: 1px solid black;
             color: black;
             text-decoration: none;
-            padding: 1em;
+            padding: 0.5em;
             text-align: center;
+            border-radius: 5px;
+            background-color: rgb(34, 113, 34);
+            color: aliceblue;
+
         }
     
         #head {
@@ -112,6 +116,8 @@
         }
         #head-title{
             padding-top: 8em;
+            font-size: 20px;
+
         }
         .head-item img {
             width: 100%;
@@ -119,10 +125,17 @@
         }
     
         #start-btn {
-            background-color: green;
+            background-color: rgb(34, 113, 34);;
             color: white;
             border: none;
+            border-radius: 5px;
             padding: 1em;
+            margin-top: 25%;
+            
+        }
+        a{
+            text-decoration: none;
+            color: rgb(67, 67, 67)
         }
     </style>
 
@@ -149,10 +162,10 @@
     <div id="navbar">
         <div id="nav-item">
             <ul>
-                <li>Home</li>
+                <li><a href="">Home</a></li>
                 <li>
                     <div class="dropdown">
-                        <button onclick="show_hide()" class="button">Category</button>
+                        <li><a href="{% url 'admin_app:category_list' %}">Category</a></li>
 
                         <!-- dropdown list items will show when we click the drop button -->
                         <div id="list-items">
@@ -162,13 +175,13 @@
                             <a href="#"> Option 4 </a>
                         </div>
                 </li>
-                <li><a href="{% url 'admin_app:p_list' %}"><button>Products</button></a></li>
-                <li>Contact</li>
+                <li><a href="{% url 'admin_app:p_list' %}">Products</a></li>
+                <li><a href="">Contact</a></li>
             </ul>
         </div>
         <div id="nav-icons">
             <ul>
-                <li><a href="{% url 'cart_app:cart_list' %}"><button><i class="fa-solid fa-cart-shopping"></i></button></a></li>
+                <li><a href="{% url 'cart_app:cart_list' %}"><i class="fa-solid fa-cart-shopping"></i></a></li>
                 <li>
                     <div class="dropdown">
                         <button onclick="profile_show_hide()" class="button"><i class="fa-solid fa-user"></i>
@@ -176,7 +189,7 @@
 
                         <!-- dropdown list items will show when we click the drop button -->
                         <div id="profile-items">
-                            <a href="#"></a>
+                            <a href="{% url 'customer_app:customer_login'%}">Login</a>
                             <a href="{% url 'customer_app:customer_login' %}">Logout</a>
                         </div>
                 </li>
@@ -193,7 +206,7 @@
             <div id="head-title">
                 <h3>Fresh and Organic</h3>
                 <h1>Your Daily Need <br> Product</h1>
-                <button id="start-btn">Get Started</button>
+                <a href="{% url 'admin_app:p_list' %}"><button id="start-btn">Get Started</button></a>
             </div>
         </div>
     </div>

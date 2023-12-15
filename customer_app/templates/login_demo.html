@@ -50,7 +50,9 @@
         <form action="" id="continueAsForm" method="post">
             {% csrf_token %}
             {{form}}
-            <a href="{% url 'customer_app:customer_home' %}"><button type="submit" class="continueAsButtons" id="loginButton">LOGIN</button></a>
+            <a href="{% url 'customer_app:customer_home' %}"><button type="submit" class="continueAsButtons" id="loginButton">LOGIN</button></a> <br>
+            <a href="{% url 'customer_app:forgot_pwd' %}"> Forgot password?</a>
+
         </form>
         </section>
     </div>
