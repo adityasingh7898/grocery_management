@@ -4,25 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category Register</title>
+    <style>
+        nav{
+            display: flex;
+            background-color: palegoldenrod;
+        }
 
+        a{
+            margin: 2% 2% 2% 2%;
+        }
+        
+        div{
+            
+        }
+
+        form{
+            text-align: center;
+            margin-top: 5%;
+            font-size: 130%;
+        }
+
+        #button{
+            background-color: coral;
+        }
+        
+    </style>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
 <body>
     
-    <h1>Register page</h1>
-    <form action="" method="post">
-        {% csrf_token %}
+    <div> 
+        <nav>
+            <a class="btn btn-primary" href="{% url 'admin_app:category_list' %}" role="button">Category List</a>
+            <a class="btn btn-primary" href="{% url 'admin_app:p_list' %}" role="button">Product List</a>
+            <a class="btn btn-primary" href="{% url 'admin_app:p_register' %}" role="button">Add Product</a>
+        </nav>
+        
+        <form action="" method="post">
+            {% csrf_token %}
 
-        <label for="id_name">Add category name:</label>
-        <input type="text" name="cat_name" id="id_name">
+            <label for="id_name">Enter category name:</label>
+            <input type="text" name="cat_name" id="id_name"><br><br>
 
-        <input type="submit" value="Add Category">
-    </form>
-    <h3>List of Categories and Products:</h3>
-    <a class="btn btn-primary" href="{% url 'admin_app:category_list' %}" role="button">Category List</a>
-    <a class="btn btn-primary" href="{% url 'admin_app:p_register' %}" role="button">Add Product</a>
-    <a class="btn btn-primary" href="{% url 'admin_app:p_list' %}" role="button">Product List</a>
+            <input id="button" type="submit" value="Add Category">
+        </form>
+    </div>
+    
 
    
 

@@ -4,25 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category List</title>
+    <style>
+        #tab{
+            display:flex;
+            margin: 4% 5% 3% 35%;
+        }
+
+        table{
+            border-color: rebeccapurple;
+        }
+
+        th,td{
+            padding: 12px;
+            border-color: rebeccapurple;
+        }
+
+        th{
+            color: rgb(248, 38, 38);
+            font-size: x-large;
+        }
+
+        td{
+            color: darkblue;
+            font-size: larger;
+        }
+
+        #head{
+            margin-top: 5%;
+            margin-left: 43%;
+            color: olive;
+
+        }
+
+        .btn{
+            background-color: rgb(206, 152, 113);
+            font-size: large;
+        }
+
+        .btn1{
+            text-align: center;
+        }
+
+        .btn2{
+            width: 20%;
+            font-size: medium;
+            padding: 0.7%;
+            background-color: chocolate;
+        }
+    
+    </style>
 </head>
 <body>
     {% for i in messages %}
     <h2>{{i}}</h2>
     {% endfor %}
-
-    <div>
+    <div id="head">
+        <h1>Category List</h1>
+    </div>
+    <div id="tab">
         {% if data %}
         <table border="2px solid">
             <tr>
-                <th>id</th>
-                <th>name</th>
+                <th>ID</th>
+                <th>Category Name</th>
             </tr>
             {% for i in data %}
             <tr>
                 <td>{{i.cat_id}}</td>
                 <td>{{i.cat_name}}</td>
-                <td><a href="{% url 'admin_app:category_update' pk=i.cat_id %}"><button>Update</button></a></td>
-                <td><a href="{% url 'admin_app:category_delete' pk=i.cat_id %}"><button>Delete</button></a></td>
+                <td colspan="2"><a href="{% url 'admin_app:category_update' pk=i.cat_id %}"><button class="btn">Update</button></a></td>
+                <td><a href="{% url 'admin_app:category_delete' pk=i.cat_id %}"><button class="btn">Delete</button></a></td>
 
             </tr>
             {% endfor %}
@@ -32,11 +83,11 @@
         {% endif %}
     </div><br>
 
-    <div>
-        <a href="{% url 'admin_app:category_register' %}"><button>To Add Category</button></a>
-        <a href="{% url 'admin_app:p_register' %}"><button>To Add Product</button></a>
-    </div>
+    <div class="btn1">
+        <a href="{% url 'admin_app:category_register' %}"><button class="btn2">To Add Category</button></a><br><br>
+        <a href="{% url 'admin_app:p_register' %}"><button class="btn2">To Add Product</button></a>
     
+    </div>
     
 </body>
 </html>
