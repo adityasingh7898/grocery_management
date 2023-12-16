@@ -25,7 +25,21 @@ def customer_register_view(request):
             messages.error(request,"Not Registered.")
     return render(request=request,template_name='customer_register.html',context={'form':form})
 
-def customer_login_view(request):
+# def customer_login_view(request):
+#     form=customer_login_form()
+#     if request.method=='POST':
+#         form=customer_login_form(request.POST)
+#         if form.is_valid():
+#             user=authenticate(
+#                 username=form.cleaned_data['username'],password=form.cleaned_data['password'])
+#             if user:
+#                 login(request,user)
+#                 messages.success(request,"Login Successful")
+#                 return redirect('/customer_app/customer_login')
+        
+#     return render(request=request,template_name='login_demo.html',context={'form':form})
+
+def login_demo_view(request):
     form=customer_login_form()
     if request.method=='POST':
         form=customer_login_form(request.POST)
@@ -35,8 +49,7 @@ def customer_login_view(request):
             if user:
                 login(request,user)
                 messages.success(request,"Login Successful")
-                return redirect('/customer_app/login_demo')
-        
+                return redirect('/customer_app/customer_home')
     return render(request=request,template_name='login_demo.html',context={'form':form})
 
 def customer_list_view(request):
@@ -51,16 +64,16 @@ def pro_item_list_view(request):
     res=product_item.objects.all()
     return render(request=request,template_name='cust_pro_list.html',context={'data':res})
 
-@login_required(login_url='/customer_app/customer_login')
+@login_required(login_url='/customer_app/login_demo')
 def customer_home_view(request):
     res=category_items.objects.all()
     print(res)
     return render(request=request,template_name='customer_home.html',context={'res':res})
 
-@login_required(login_url='/customer_app/customer_login')
+@login_required(login_url='/customer_app/login_demo')
 def customer_logout_view(request):
     logout(request)
-    return redirect('/customer_app/customer_login')
+    return redirect('/customer_app/login_demo')
 
 def forgot_pwd_view(request):
     res=customer_model.objects.all().values_list('email')
@@ -97,21 +110,8 @@ def change_pwd_view(request,pk):
         if form.is_valid():
             if form.cleaned_data['enter_new_password']==form.cleaned_data['re_enter_password']:
                 customer_model.objects.filter(id=pk).update(password=make_password(form.cleaned_data['enter_new_password']))
-                return redirect('/customer_app/customer_login')
+                return redirect('/customer_app/login_demo')
     return render(request=request,template_name='create_pwd.html',context={'form':form})
 
 
 
-def login_demo_view(request):
-    form=customer_login_form()
-    print(form)
-    if request.method=='POST':
-        form=customer_login_form(request.POST)
-        if form.is_valid():
-            user=authenticate(
-                username=form.cleaned_data['username'],password=form.cleaned_data['password'])
-            if user:
-                login(request,user)
-                messages.success(request,"Login Successful")
-                return redirect('/customer_app/customer_home')
-    return render(request=request,template_name='login_demo.html',context={'form':form})
