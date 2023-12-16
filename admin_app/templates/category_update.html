@@ -4,6 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category Update</title>
+
+    <style>
+        h1{
+            text-align: center;
+            color: brown;
+        }
+
+        form{
+            font-size: large;
+            text-align: center;
+            margin-top: 7%;
+        }
+
+        #id_name{
+            font-size: medium;
+            background-color: rgb(208, 233, 234);
+            padding: 0.5%;
+            margin-right: 2%;
+            border-radius: 30%;
+            margin-bottom: 2%;
+            text-align: center;
+        }
+
+        #btn{
+            color: blue;
+            background-color: rgb(223, 222, 222);
+            padding: 0.5%;
+            border-radius: 20%;
+        }
+
+        #a{
+            text-align: center;
+        }
+
+        .btn2{
+            margin-bottom: 1%;
+            width: 20%;
+            padding: 0.7%;
+            background-color: rgb(161, 241, 80);
+            font-size: larger;
+        }
+
+        
+    </style>
 </head>
 <body>
 
@@ -11,16 +55,17 @@
         <h1>Update Page</h1>
         <form action="" method="post">
             {% csrf_token %}
-            <label for="id_name">Name</label>
+            <h2 style="color: crimson;">To update category</h2><br>
+            <label for="id_name"><b>Category Name:</b></label>
             <input type="text" name="name" id="id_name" value="{{data.cat_name}}">
 
-        <input type="submit" value="Update">
+        <input id="btn" type="submit" value="Update">
         </form>
-    </div><br>
-    <div>
-        <a href="{% url 'admin_app:category_list' %}"><button>List Page</button></a>
-        <a href="{% url 'admin_app:category_register' %}"><button>To Add Category</button></a>
-        <a href="{% url 'admin_app:p_register' %}"><button>To Add Product</button></a>
+    </div><br><br><br>
+    <div id="a">
+        <a class="btn1" href="{% url 'admin_app:category_list' %}"><button class="btn2">List Page</button></a><br>
+        <a class="btn1" href="{% url 'admin_app:category_register' %}"><button class="btn2">To Add Category</button></a><br>
+        <a class="btn1" href="{% url 'admin_app:p_register' %}"><button class="btn2">To Add Product</button></a>
         
     </div>
     

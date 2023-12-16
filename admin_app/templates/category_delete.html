@@ -4,23 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category Delete</title>
+    <style>
+        h1{
+            text-align: center;
+            color: darkgreen;
+            padding-top: 3%;
+        }
+
+        
+        form{
+            margin-top: 7%;
+            text-align: center;
+            font-size: x-large;
+        }
+        p{
+            color: darkmagenta;
+        }
+        #btn{
+            width: 12%;
+            padding: 0.5%;
+            font-size: medium;
+            background-color: burlywood;
+        }
+
+        .btns{
+            flex-direction: row;
+            margin: 2%;
+            width: 20%;
+            
+        }
+
+        #btns{
+            margin-top: -13%;
+        }
+
+        
+    </style>
 </head>
 <body>
-    
-    <div>
+<div id="div">
+    <section>
         <h1>Delete Page</h1>
-        <h1>Are you sure to delete record id: {{data.cat_id}} name:{{data.cat_name}}</h1>
         <form action="" method="post">
+            <p>Are you sure to delete record id: {{data.cat_id}} name:{{data.cat_name}}</p>
             {% csrf_token %}
-            <input type="submit" value="delete"><br>
+            <input id="btn" type="submit" value="Delete">
         </form>
-    </div>
-    <div>
-        <a href="{% url 'admin_app:category_list' %}"><button>Category List</button></a>
-        <a href="{% url 'admin_app:category_register' %}"><button>To Add Category</button></a>
-        <a href="{% url 'admin_app:category_register' %}"><button>To Add Category</button></a>
-        <a href="{% url 'admin_app:p_list' %}"><button>Product List</button></a>
-    </div>
+    </section>
+    <section id="s"></section>
+    <section id="btns">
+        <a href="{% url 'admin_app:category_list' %}"><button class="btns">Category List</button></a><br>
+        <a href="{% url 'admin_app:category_register' %}"><button class="btns">To Add Category</button></a><br>
+        <a href="{% url 'admin_app:category_register' %}"><button class="btns">To Add Category</button></a><br>
+        <a href="{% url 'admin_app:p_list' %}"><button class="btns">Product List</button></a>
+    </section>
+</div>
 
 </body>
 </html>
