@@ -4,24 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product List</title>
+    <style>
+        #tab{
+            display: flex;
+            margin: 4% 5% 3% 25%;
+        }
+
+        th,td{
+            padding: 2px;
+            border-color: rebeccapurple;
+            font-size: larger;
+            text-align: center;
+        }
+
+        th{
+            color: rgb(248, 38, 38);
+            font-size: x-large;
+        }
+
+        td{
+            color: darkblue;
+            font-size: larger;
+        }
+
+    </style>
 </head>
 <body>{% for i in messages %}
     <h2>{{i}}</h2>
     {% endfor %}
     <h3>Items List</h3>
-    <div>
+    <div id="tab"> 
         {% if data %}
-        <table border="2px solid">
+        <table border="2px solid" >
             <tr>
-                <th>id</th>
-                <th>name</th>
-                <th>desc</th>
-                <th>quantity</th>
-                <th>price</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Price</th>
                 <th>Image</th>
                 <th>Cart</th>
-                <th>Update</th>
-                <th>Delete</th>
+                
             </tr>
             {% for i in data %}
             <tr>
