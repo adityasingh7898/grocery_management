@@ -4,18 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Register</title>
+    <style>
+        nav{
+            background-color: rgb(224, 222, 222);
+            
+        }
+        
+        .ul1{
+            display: flex;
+            width: 50%;
+            justify-content: space-evenly;
+        }
+
+        .btn{
+            font-size: large;
+            margin-top: 20%;
+            margin-bottom: 20%;
+            border-radius: 2%;
+            background-color: rgb(207, 206, 206);
+        }
+
+        .btn:hover{
+            font-size: large;
+            margin-top: 20%;
+            margin-bottom: 20%;
+            border-radius: 2%;
+            background-color: rgb(159, 157, 157);
+        }
+
+        form{
+            margin-left: 35%;
+            margin-top: 7%;
+            text-align: left;
+            color: rgb(76, 111, 4);
+        }
+
+        #btn1{
+            background-color: rgb(146, 183, 236);
+            width: 10%;
+            margin-left: 15%;
+            padding: 0.5%;
+            font-size: larger;
+        }
+    </style>
 </head>
 <body>
-
-    <h1>Register page</h1>
+    <nav>
+            
+        <ul class="ul1">
+            <li type="none"><a href="{% url 'admin_app:category_register' %}"><button class="btn">Add Category</button></a></li>
+            <li type="none"><a href="{% url 'admin_app:category_list' %}"><button class="btn">Category List</button></a></li>
+            <li type="none"><a href="{% url 'admin_app:p_list' %}"><button class="btn">Product List</button></a></li>
+            <li type="none"><a href="{% url 'admin_app:p_register' %}"><button class="btn">Add Product</button></a></li>
+        </ul>
+    </nav>
+    <!-- <h1>Register page</h1> -->
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
        <table>
         {{form}}
-       </table>
-        <input type="submit" value="Create">
+       </table><br>
+        <input id="btn1" type="submit" value="Create">
     </form>
-    <a href="{% url 'admin_app:p_list' %}"><button>Product List</button></a>
+    
     
 </body>
 </html>

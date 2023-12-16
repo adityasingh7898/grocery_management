@@ -12,12 +12,39 @@
             
         }
 
+        nav{
+            background-color: rgb(224, 222, 222);
+            
+        }
+        
+        .ul1{
+            display: flex;
+            width: 50%;
+            justify-content: space-evenly;
+        }
+
+        .btn{
+            font-size: large;
+            margin-top: 20%;
+            margin-bottom: 20%;
+            border-radius: 2%;
+            background-color: rgb(207, 206, 206);
+        }
+
+        .btn:hover{
+            font-size: large;
+            margin-top: 20%;
+            margin-bottom: 20%;
+            border-radius: 2%;
+            background-color: rgb(159, 157, 157);
+        }
+
         
         form{
             margin-top: 7%;
             text-align: center;
             font-size: x-large;
-            margin-left: 20%;
+            /* margin-left: 2%; */
         }
         p{
             color: darkmagenta;
@@ -29,45 +56,21 @@
             background-color: burlywood;
         }
 
-        .btns{
-            margin: 5%;
-            width: 60%;
-            padding: 2%;
-            text-align: center;
-            font-size: larger;
-            background-color: rgb(172, 206, 207);
-        }
-
-        #btns{
-            margin-top: -19%;
-            border: 2px solid dimgray;
-            width: 25%;
-            height: 80%;
-            text-align: center;
-            background-color: rgb(187, 167, 206);
-            
-        }
-
-        #b{
-            margin-bottom: 90%;
-
-        }
-
-        #b1{
-            margin-top: 15%;
-        }
-
-        #div{
-            background-color: bisque;
-        }
-        
-        
     </style>
 </head>
 <body>
+    <nav>
+            
+        <ul class="ul1">
+            <li type="none"><a href="{% url 'admin_app:category_register' %}"><button class="btn">Add Category</button></a></li>
+            <li type="none"><a href="{% url 'admin_app:category_list' %}"><button class="btn">Category List</button></a></li>
+            <li type="none"><a href="{% url 'admin_app:p_list' %}"><button class="btn">Product List</button></a></li>
+            <li type="none"><a href="{% url 'admin_app:p_register' %}"><button class="btn">Add Product</button></a></li>
+        </ul>
+    </nav>
     <div id="div">
     <section id="s1">
-        <h1>Delete Page</h1>
+        <!-- <h1>Delete Page</h1> -->
         <form action="" method="post">
             <p>Are you sure to delete record id : {{data.cat_id}} Name : {{data.cat_name}}?</p>
             {% csrf_token %}
@@ -76,13 +79,7 @@
     </section>
     
 
-        <section id="btns">
-            <a href="{% url 'admin_app:category_list' %}"><button id="b1" class="btns">Category List</button></a><br>
-            <a href="{% url 'admin_app:category_register' %}"><button class="btns">To Add Category</button></a><br>
-            <a href="{% url 'admin_app:p_list' %}"><button class="btns">Product List</button></a><br>
-            <a href="{% url 'admin_app:p_register' %}"><button id="b" class="btns">To Add Product</button></a>
-            
-        </section>
+        
     </div>
 
 </body>

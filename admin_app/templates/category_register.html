@@ -4,17 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category Register</title>
+    {% load static %}
     <style>
         nav{
+            background-color: rgb(224, 222, 222);
+            
+        }
+        
+        .ul1{
             display: flex;
-            background-color: palegoldenrod;
+            width: 50%;
+            justify-content: space-evenly;
         }
 
-        a{
-            margin: 2% 2% 2% 2%;
+        .btn{
+            font-size: large;
+            margin-top: 20%;
+            margin-bottom: 20%;
+            border-radius: 2%;
+            background-color: rgb(207, 206, 206);
         }
-        
-        
+
+        .btn:hover{
+            font-size: large;
+            margin-top: 20%;
+            margin-bottom: 20%;
+            border-radius: 2%;
+            background-color: rgb(159, 157, 157);
+        }
 
         form{
             text-align: center;
@@ -23,32 +40,52 @@
         }
 
         #button{
-            background-color: coral;
+            background-color: rgb(213, 84, 38);
+            padding: 0.5%;
+            font-size: large;
+        }
+
+        #button:hover{
+            background-color: rgb(243, 68, 5);
+            padding: 0.5%;
+            font-size: large;
+        }
+
+        #id_name{
+            font-size: x-large;
+            color: rgb(141, 19, 255);
         }
         
-        
+        body{
+            background-image: url("../static/images/img.jpg");
+            background-color: bisque;
+        }
     </style>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    
 </head>
 <body>
     
-    <div> 
+    <div id="img1"> 
         <nav>
-            <a class="btn btn-primary" href="{% url 'admin_app:category_list' %}" role="button">Category List</a>
-            <a class="btn btn-primary" href="{% url 'admin_app:p_list' %}" role="button">Product List</a>
-            <a class="btn btn-primary" href="{% url 'admin_app:p_register' %}" role="button">Add Product</a>
+            
+            <ul class="ul1">
+                <li type="none"><a href="{% url 'admin_app:category_register' %}"><button class="btn">Add Category</button></a></li>
+                <li type="none"><a href="{% url 'admin_app:category_list' %}"><button class="btn">Category List</button></a></li>
+                <li type="none"><a href="{% url 'admin_app:p_list' %}"><button class="btn">Product List</button></a></li>
+                <li type="none"><a href="{% url 'admin_app:p_register' %}"><button class="btn">Add Product</button></a></li>
+            </ul>
         </nav>
         
         <form action="" method="post">
             {% csrf_token %}
 
-            <label for="id_name">Enter category name:</label>
+            <label id="id_name" for="id_name">Enter category name:</label><br>
             <input type="text" name="cat_name" id="id_name"><br><br>
 
             <input id="button" type="submit" value="Add Category">
         </form>
-    </div>
+    </div><br>
     
 
    

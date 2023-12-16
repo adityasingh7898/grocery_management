@@ -5,9 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product List</title>
     <style>
+
+        nav{
+            background-color: rgb(224, 222, 222);
+            
+        }
+        
+        .ul1{
+            display: flex;
+            width: 50%;
+            justify-content: space-evenly;
+        }
+
+        .btn{
+            font-size: large;
+            margin-top: 20%;
+            margin-bottom: 20%;
+            border-radius: 2%;
+            background-color: rgb(207, 206, 206);
+        }
+
+        .btn:hover{
+            font-size: large;
+            margin-top: 20%;
+            margin-bottom: 20%;
+            border-radius: 2%;
+            background-color: rgb(159, 157, 157);
+        }
+
+        h1{
+            text-align: center;
+            color: chocolate;
+        }
         #tab{
             display: flex;
-            margin: 4% 5% 3% 25%;
+            margin: 3% 5% 3% 25%;
         }
 
         th,td{
@@ -29,10 +61,20 @@
 
     </style>
 </head>
-<body>{% for i in messages %}
+<body>
+    <nav>
+            
+        <ul class="ul1">
+            <li type="none"><a href="{% url 'admin_app:category_register' %}"><button class="btn">Add Category</button></a></li>
+            <li type="none"><a href="{% url 'admin_app:category_list' %}"><button class="btn">Category List</button></a></li>
+            <li type="none"><a href="{% url 'admin_app:p_list' %}"><button class="btn">Product List</button></a></li>
+            <li type="none"><a href="{% url 'admin_app:p_register' %}"><button class="btn">Add Product</button></a></li>
+        </ul>
+    </nav>
+    {% for i in messages %}
     <h2>{{i}}</h2>
     {% endfor %}
-    <h3>Items List</h3>
+    <!-- <h1>Items List</h1> -->
     <div id="tab"> 
         {% if data %}
         <table border="2px solid" >
@@ -67,10 +109,10 @@
         {% endif %}
     </div><br>
 
-    <div>
+    <!-- <div>
         <a href="{% url 'admin_app:category_register' %}"><button>To Add Category</button></a>
         <a href="{% url 'admin_app:p_register' %}"><button>To Add Product</button></a>
-    </div>
+    </div> -->
 
 </body>
 </html>

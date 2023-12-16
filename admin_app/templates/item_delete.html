@@ -4,19 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Delete</title>
+    <style>
+        nav{
+            background-color: rgb(224, 222, 222);
+            
+        }
+        
+        .ul1{
+            display: flex;
+            width: 50%;
+            justify-content: space-evenly;
+        }
+
+        .btn{
+            font-size: large;
+            margin-top: 20%;
+            margin-bottom: 20%;
+            border-radius: 2%;
+            background-color: rgb(207, 206, 206);
+        }
+
+        .btn:hover{
+            font-size: large;
+            margin-top: 20%;
+            margin-bottom: 20%;
+            border-radius: 2%;
+            background-color: rgb(159, 157, 157);
+        }
+
+        h1{
+            color: rgb(61, 131, 133);
+            text-align: center;
+        }
+        p{
+            font-size: x-large;
+            text-align: center;
+        }
+
+        #btn1{
+            width: 10%;
+            background-color: rgb(251, 177, 237);
+            padding: 0.5%;
+            font-size: large;
+            text-align: center;
+            margin-left: 45%;
+        }
+    </style>
 </head>
 <body>
-    
+    <nav>
+            
+        <ul class="ul1">
+            <li type="none"><a href="{% url 'admin_app:category_register' %}"><button class="btn">Add Category</button></a></li>
+            <li type="none"><a href="{% url 'admin_app:category_list' %}"><button class="btn">Category List</button></a></li>
+            <li type="none"><a href="{% url 'admin_app:p_list' %}"><button class="btn">Product List</button></a></li>
+            <li type="none"><a href="{% url 'admin_app:p_register' %}"><button class="btn">Add Product</button></a></li>
+        </ul>
+    </nav>
     <div>
-        <h1>Delete Page</h1>
-        <h1>Are you sure to delete record id: {{data.item_id}} name:{{data.item_name}}</h1>
+        <!-- <h1>Delete Page</h1> -->
+        <p>Are you sure to delete record id: {{data.item_id}} name:{{data.item_name}}</p>
         <form action="" method="post">
             {% csrf_token %}
-            <input type="submit" value="delete">
+            <input id="btn1" type="submit" value="Delete">
         </form>
-    </div>
-    <div><a href="{% url 'admin_app:p_list' %}"><button>Product List</button></a>
-    </div>
 
 </body>
 </html>

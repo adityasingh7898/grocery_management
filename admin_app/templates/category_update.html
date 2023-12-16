@@ -22,7 +22,7 @@
             background-color: rgb(208, 233, 234);
             padding: 0.5%;
             margin-right: 2%;
-            border-radius: 30%;
+            border-radius: 10%;
             margin-bottom: 2%;
             text-align: center;
         }
@@ -31,42 +31,63 @@
             color: blue;
             background-color: rgb(223, 222, 222);
             padding: 0.5%;
-            border-radius: 20%;
+            border-radius: 2%;
+            font-size: large;
         }
 
-        #a{
-            text-align: center;
+        nav{
+            background-color: rgb(224, 222, 222);
+            
+        }
+        
+        .ul1{
+            display: flex;
+            width: 50%;
+            justify-content: space-evenly;
         }
 
-        .btn2{
-            margin-bottom: 1%;
-            width: 20%;
-            padding: 0.7%;
-            background-color: rgb(161, 241, 80);
+        .btn{
+            font-size: large;
+            margin-top: 20%;
+            margin-bottom: 20%;
+            border-radius: 2%;
+            background-color: rgb(207, 206, 206);
+        }
+
+        .btn:hover{
+            font-size: large;
+            margin-top: 20%;
+            margin-bottom: 20%;
+            border-radius: 2%;
+            background-color: rgb(159, 157, 157);
+        }
+
+        #id_name1{
             font-size: larger;
         }
-
-        
     </style>
 </head>
 <body>
+    <nav>
+            
+        <ul class="ul1">
+            <li type="none"><a href="{% url 'admin_app:category_register' %}"><button class="btn">Add Category</button></a></li>
+            <li type="none"><a href="{% url 'admin_app:category_list' %}"><button class="btn">Category List</button></a></li>
+            <li type="none"><a href="{% url 'admin_app:p_list' %}"><button class="btn">Product List</button></a></li>
+            <li type="none"><a href="{% url 'admin_app:p_register' %}"><button class="btn">Add Product</button></a></li>
+        </ul>
+    </nav>
 
     <div>
-        <h1>Update Page</h1>
+        <!-- <h1>Update Page</h1> -->
         <form action="" method="post">
             {% csrf_token %}
             <h2 style="color: crimson;">To update category</h2><br>
-            <label for="id_name"><b>Category Name:</b></label>
+            <label id="id_name1" for="id_name"><b>Category Name:</b></label>
             <input type="text" name="name" id="id_name" value="{{data.cat_name}}">
 
         <input id="btn" type="submit" value="Update">
         </form>
-    </div><br><br><br>
-    <div id="a">
-        <a class="btn1" href="{% url 'admin_app:category_list' %}"><button class="btn2">List Page</button></a><br>
-        <a class="btn1" href="{% url 'admin_app:category_register' %}"><button class="btn2">To Add Category</button></a><br>
-        <a class="btn1" href="{% url 'admin_app:p_register' %}"><button class="btn2">To Add Product</button></a>
-        
     </div>
     
 </body>
