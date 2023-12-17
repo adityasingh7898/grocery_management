@@ -20,7 +20,7 @@ def customer_register_view(request):
         if form.is_valid():
             form.save()
             messages.success(request,"Registration Successful.")
-            return redirect('/customer_app/customer_login')
+            return redirect('/customer_app/login_demo')
         else:
             messages.error(request,"Not Registered.")
     return render(request=request,template_name='customer_register.html',context={'form':form})
@@ -59,6 +59,7 @@ def customer_list_view(request):
 def cust_category_list_view(request):
     res=category_items.objects.all()
     return render(request=request,template_name='cust_category_list.html',context={'data':res})
+
 # product list
 def pro_item_list_view(request):
     res=product_item.objects.all()
