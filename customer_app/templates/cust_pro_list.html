@@ -22,34 +22,18 @@
         }
 
         .card {
-            /* height: 10%; */
-            width: 20%;
-            margin-top: 5%;
-            background-color: aqua;
+            background-color: rgb(#adb5bd);
             border-radius: 10px;
-            /* box-shadow: 6px 6px 6px red; */
-            /* margin-left: 80px; */
             padding: 1%;
+        }
+        .card-body{
+            height: 11rem;
         }
 
         .cardImg {
-            height: 150px;
-            width: 260px;
+            height: 40%;
+            width: 100%;
             border-radius: 8px;
-        }
-
-        .cardButton {
-            margin-left: 10px;
-            background-color: black;
-            color: red;
-            border-radius: 4px;
-            box-shadow: 4px;
-            box-shadow: 3px 3px 8px yellow;
-        }
-
-        #cardList {
-            display: flex;
-            justify-content: space-evenly;
         }
     </style>
 
@@ -62,21 +46,22 @@
             <div class="collapse navbar-collapse d-flex justify-content-between flex-wrap " id="navbarSupportedContent">
                 <ul class="navbar-nav d-flex mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#"> Home </a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'customer_app:customer_home' %}"> Home </a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Category
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Option 1</a></li>
-                            <li><a class="dropdown-item" href="#">Option 2</a></li>
-                            <li><a class="dropdown-item" href="#">Option 3</a></li>
-                        </ul>
+                    <li>
+                        <form class="d-flex" role="search" action="{% url 'admin_app:p_details' %}" method="post">
+                            {% csrf_token %}
+                            <select name="cat_list" id="" class="form-cotrol me-2">
+                                {{res}}
+                                {% for i in res %}
+                                <option value="{{i.cat_id}}">{{i.cat_name}}</option>
+                                {% endfor %}
+                            </select>
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"> Product </a>
+                        <a class="nav-link" href="{% url 'customer_app:pro_item_list' %}"> Product </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"> Contact </a>
@@ -92,9 +77,8 @@
                                 <i class="fa-solid fa-user"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-lg-end">
-                                <li><a class="dropdown-item" href="#">Menu item 1</a></li>
-                                <li><a class="dropdown-item" href="#">Menu item 2</a></li>
-                                <li><a class="dropdown-item" href="#">Menu item 3</a></li>
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="{% url 'customer_app:customer_home' %}">Logout</a></li>
                             </ul>
                         </div>
                     </li>
@@ -102,33 +86,31 @@
             </div>
         </div>
     </nav>
-    
-     
-    
+
     {% for i in messages %}
     <h2>{{i}}</h2>
     {% endfor %}
     <h3 id="h">Items List</h3>
-    <div id="cardList">
+    <div class="class_list d-flex justify-content-evenly flex-wrap m-5 ">
         {% if data %}
         {% for i in data %}
-        <div class="card">
-            <img src="{{i.img.url}}" alt="" class="cardImg">
-            {% comment %} <h3>Item_id={{i.item_id}}</h3> {% endcomment %}
-            <h2>{{i.item_name}}</h2>
-            <p>{{i.item_desc}}</p>
-            <div>{{i.item_quantity}}</div>
-            <div>{{i.price}}</div>
-
-            <a href="{% url 'cart_app:cart_register' p_id=i.item_id cust_id=user.id iname=i.item_name iprice=i.price %}"><button class="cardButton">Add cart</button></a>
+        <div class="card m-3" style="width: 18rem;">
+            <img src="{{i.img.url}}" class="card-img-top cardImg" alt="cardImg">
+            <div class="card-body">
+                
+                <h2 class="card-title">Name: {{i.item_name}}</h2>
+                <p class="card-text">Desc: {{i.item_desc}}</p>
+                <h5 class="card-title">Quantity: {{i.item_quantity}}</h5>
+                <h5 class="card-title">Price: {{i.price}}</h5>
+                <a href="{% url 'cart_app:cart_register' p_id=i.item_id cust_id=user.id iname=i.item_name iprice=i.price %}" class="btn btn-success">Add Cart</a>
+            </div>
         </div>
-
         {% endfor %}
 
         {% else %}
         <h2>Data is not found</h2>
         {% endif %}
-    </div><br>
+    </div>
 
 </body>
 
