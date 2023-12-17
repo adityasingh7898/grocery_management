@@ -7,7 +7,8 @@
     {% load static %}
     <style>
         nav{
-            background-color: rgb(224, 222, 222);
+            background-color: rgba(249, 250, 248, 0.358);
+            
             
         }
         
@@ -29,14 +30,18 @@
             font-size: large;
             margin-top: 20%;
             margin-bottom: 20%;
-            border-radius: 2%;
             background-color: rgb(159, 157, 157);
+            border-radius: 7px;
         }
 
         form{
             text-align: center;
             margin-top: 5%;
             font-size: 130%;
+            background-color: rgba(220, 220, 220, 0.397);
+            width: 50%;
+            height: 50%;
+            margin-left: 25%;
         }
 
         #button{
@@ -49,16 +54,26 @@
             background-color: rgb(243, 68, 5);
             padding: 0.5%;
             font-size: large;
+            /* border-radius: 2px; */
         }
 
-        #id_name{
-            font-size: x-large;
-            color: rgb(141, 19, 255);
+        #name{
+            font-size: xx-large;
+            color: rgb(11, 2, 91);
         }
-        
+        #t_name{
+            font-size: x-large;
+        }
+        /* label{
+            padding-top: 2%;
+        }
+        #form{
+            font-size: x-large;
+            
+        } */
         body{
-            background-image: url("../static/images/img.jpg");
-            background-color: bisque;
+            background-image: url("{% static 'images/img.jpg' %}");
+            /* background-color: bisque; */
         }
     </style>
 
@@ -76,15 +91,16 @@
                 <li type="none"><a href="{% url 'admin_app:p_register' %}"><button class="btn">Add Product</button></a></li>
             </ul>
         </nav>
-        
+    <div id="form">
         <form action="" method="post">
             {% csrf_token %}
 
-            <label id="id_name" for="id_name">Enter category name:</label><br>
-            <input type="text" name="cat_name" id="id_name"><br><br>
+            <label id="name" for="id_name"><b>Enter category name:</b></label><br>
+            <input type="text" name="cat_name" id="t_name"><br><br>
 
             <input id="button" type="submit" value="Add Category">
         </form>
+    </div>
     </div><br>
     
 

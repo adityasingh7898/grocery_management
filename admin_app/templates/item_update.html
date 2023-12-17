@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product_update</title>
+    {% load static %}
     <style>
+        body{
+            background-image: url("{% static 'images/gms2.jpg'%}");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
         nav{
             background-color: rgb(224, 222, 222);
             
@@ -30,6 +36,7 @@
             margin-bottom: 20%;
             border-radius: 2%;
             background-color: rgb(159, 157, 157);
+            border-radius: 7px;
         }
         h1{
             text-align: center;
