@@ -1,46 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product List</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            padding: 0%;
+            margin: 0%;
+        }
+
+        .card {
+            /* height: 10%; */
+            width: 20%;
+            margin-top: 5%;
+            background-color: aqua;
+            border-radius: 10px;
+            /* box-shadow: 6px 6px 6px red; */
+            /* margin-left: 80px; */
+            padding: 1%;
+        }
+
+        .cardImg {
+            height: 150px;
+            width: 260px;
+            border-radius: 8px;
+        }
+
+        .cardButton {
+            margin-left: 10px;
+            background-color: black;
+            color: red;
+            border-radius: 4px;
+            box-shadow: 4px;
+            box-shadow: 3px 3px 8px yellow;
+        }
+
+        #cardList {
+            display: flex;
+            justify-content: space-evenly;
+        }
+    </style>
+
 </head>
-<body>{% for i in messages %}
+
+<body>
+    
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse d-flex justify-content-between flex-wrap " id="navbarSupportedContent">
+                <ul class="navbar-nav d-flex mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#"> Home </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Category
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Option 1</a></li>
+                            <li><a class="dropdown-item" href="#">Option 2</a></li>
+                            <li><a class="dropdown-item" href="#">Option 3</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> Product </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> Contact </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav d-flex">
+                    <li class="nav-item"><button type="button" class="btn btn-light"><i
+                                class="fa-solid fa-cart-shopping"></i></button></li>
+                    <li class="nav-item dropdown text-end">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown"
+                                data-bs-display="static" aria-expanded="false">
+                                <i class="fa-solid fa-user"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-lg-end">
+                                <li><a class="dropdown-item" href="#">Menu item 1</a></li>
+                                <li><a class="dropdown-item" href="#">Menu item 2</a></li>
+                                <li><a class="dropdown-item" href="#">Menu item 3</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+     
+    
+    {% for i in messages %}
     <h2>{{i}}</h2>
     {% endfor %}
     <h3 id="h">Items List</h3>
-    <div>
+    <div id="cardList">
         {% if data %}
-        <table border="2px solid">
-            <tr>
-                <th>id</th>
-                <th>name</th>
-                <th>desc</th>
-                <th>quantity</th>
-                <th>price</th>
-                <th>Image</th>
-                <th>Cart</th>
-            
-            </tr>
-            {% for i in data %}
-            <tr>
-                <td>{{i.item_id}}</td>
-                <td>{{i.item_name}}</td>
-                <td>{{i.item_desc}}</td>
-                <td>{{i.item_quantity}}</td>
-                <td>{{i.price}}</td>
-                <td><img src="{{i.img.url}}" alt="no_image"  height="75" width="75"></td>
-                <td><a href="{% url 'cart_app:cart_register' p_id=i.item_id cust_id=user.id iname=i.item_name iprice=i.price %}"><button>Add cart</button></a></td>
-                
-               
-            </tr>
-            {% endfor %}
-        </table>
+        {% for i in data %}
+        <div class="card">
+            <img src="{{i.img.url}}" alt="" class="cardImg">
+            {% comment %} <h3>Item_id={{i.item_id}}</h3> {% endcomment %}
+            <h2>{{i.item_name}}</h2>
+            <p>{{i.item_desc}}</p>
+            <div>{{i.item_quantity}}</div>
+            <div>{{i.price}}</div>
+
+            <a href="{% url 'cart_app:cart_register' p_id=i.item_id cust_id=user.id iname=i.item_name iprice=i.price %}"><button class="cardButton">Add cart</button></a>
+        </div>
+
+        {% endfor %}
+
         {% else %}
         <h2>Data is not found</h2>
         {% endif %}
     </div><br>
 
 </body>
+
 </html>
