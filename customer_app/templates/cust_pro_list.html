@@ -62,7 +62,7 @@
             <div class="collapse navbar-collapse d-flex justify-content-between flex-wrap " id="navbarSupportedContent">
                 <ul class="navbar-nav d-flex mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#"> Home </a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'customer_app:customer_home' %}"> Home </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -83,8 +83,8 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav d-flex">
-                    <li class="nav-item"><button type="button" class="btn btn-light"><i
-                                class="fa-solid fa-cart-shopping"></i></button></li>
+                    <li class="nav-item"><button type="button" class="btn btn-light"><a href="{% url 'cart_app:cart_list' %}"><i
+                                class="fa-solid fa-cart-shopping"></i></a></button></li>
                     <li class="nav-item dropdown text-end">
                         <div class="btn-group">
                             <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown"
