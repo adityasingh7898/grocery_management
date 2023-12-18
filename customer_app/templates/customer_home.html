@@ -139,6 +139,11 @@
             text-decoration: none;
             color: rgb(67, 67, 67)
         }
+
+        #dl{
+            font-size: large;
+        }
+
     </style>
 
 </head>
@@ -178,13 +183,14 @@
                             <a href="#"> Option 4 </a> -->
                         <!-- </div> 
                 </li> -->
-                <!-- <li><a href="{% url 'customer_app:pro_item_list' %}">Products</a></li>  -->
+                <li><a href="{% url 'customer_app:pro_item_list' %}">Products</a></li> 
                 
                 <li>
                     <form action="{% url 'admin_app:p_details' %}" method="post">
                         {% csrf_token %}
-                    <select name="cat_list" id="">
+                    <select name="cat_list" id="dl" >
                         {{res}}
+                        <option id="opt" value="">Search by Category</option>
                         {% for i in res %}
                         <option value="{{i.cat_id}}" > {{i.cat_name}}</option>
                         {% endfor %}
