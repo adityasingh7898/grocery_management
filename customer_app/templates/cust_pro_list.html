@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product List</title>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -16,46 +15,20 @@
         crossorigin="anonymous"></script>
 
     <style>
-        * {
-            padding: 0%;
-            margin: 0%;
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .card-img-top{
+            height: 40%;
+            width: 100%;
+            padding: 3%;
+            border-radius: 8%;
+        }
+        .card{
+            height: 30rem;
         }
 
-        .card {
-            /* height: 10%; */
-            width: 20%;
-            margin-top: 5%;
-            background-color: rgba(0, 255, 255, 0.516);
-            border-radius: 10px;
-            /* box-shadow: 6px 6px 6px red; */
-            /* margin-left: 80px; */
-            padding: 0.5%;
-            text-align: center;
-        }
-
-        .cardImg {
-            height: 150px;
-            width: 260px;
-            border-radius: 8px;
-        }
-
-        .cardButton {
-            margin-left: 10px;
-            background-color: rgba(0, 0, 0, 0.856);
-            color: rgba(255, 0, 0, 0.668);
-            border-radius: 4px;
-            box-shadow: 4px;
-            box-shadow: 3px 3px 8px yellow;
-        }
-
-        #cardList {
-            display: flex; 
-            justify-content: space-evenly;
-            /* display: grid;
-            grid-template-rows: 3;
-            grid-template-columns: 3; */
-
-        }
     </style>
 
 </head>
@@ -108,33 +81,34 @@
         </div>
     </nav>
     
-     
-    
+
     {% for i in messages %}
     <h2>{{i}}</h2>
     {% endfor %}
     <h3 id="h">Items List</h3>
-    <div id="cardList">
+    <div class="class_list d-flex justify-content-evenly flex-wrap m-5 ">
         {% if data %}
         {% for i in data %}
-        <div class="card">
-            <img src="{{i.img.url}}" alt="" class="cardImg">
-            {% comment %} <h3>Item_id={{i.item_id}}</h3> {% endcomment %}
-            <h2>{{i.item_name}}</h2>
-            <p>{{i.item_desc}}</p>
-            <div>{{i.item_quantity}}</div>
-            <div>{{i.price}}</div>
-
-            <a href="{% url 'cart_app:cart_register' p_id=i.item_id cust_id=user.id iname=i.item_name iprice=i.price %}"><button class="cardButton">Add cart</button></a>
+        <div class="card m-3" style="width: 18rem;">
+            <img src="{{i.img.url}}" class="card-img-top" alt="cardImg">
+            <div class="card-body">
+                <!-- <h2 class="card-title">Id: {{i.item_id}}</h2> -->
+                <h2 class="card-title">Name: {{i.item_name}}</h2>
+                <p class="card-text">Desc: {{i.item_desc}}</p>
+                <h5 class="card-title">Quantity: {{i.item_quantity}}</h5>
+                <h5 class="card-title">Price: {{i.price}}</h5>
+                <a href="{% url 'cart_app:cart_register' p_id=i.item_id cust_id=user.id iname=i.item_name iprice=i.price %}" class="btn btn-success">Add Cart</a>
+            </div>
         </div>
-
         {% endfor %}
 
         {% else %}
         <h2>Data is not found</h2>
         {% endif %}
-    </div><br>
-
+    </div>
 </body>
 
 </html>
+     
+    
+    
