@@ -19,6 +19,7 @@
         #navbar {
             display: flex;
             justify-content: space-between;
+            background-color: rgba(169, 169, 169, 0.505);
         }
     
         #nav-item ul {
@@ -30,11 +31,12 @@
     
         #nav-item ul li {
             font-size: 1.2em;
-            margin: 0px 10px;
+            margin: 0px 40px;
         }
     
         #nav-icons {
             display: flex;
+            padding-top: 1%;
         }
     
         #nav-icons ul {
@@ -163,20 +165,34 @@
         <div id="nav-item">
             <ul>
                 <li><a href="">Home</a></li>
-                <li>
-                    <div class="dropdown">
-                        <li><a href="{% url 'customer_app:cust_category_list' %}">Category</a></li>
+                <!-- <li>
+                    <div class="dropdown"> -->
+                        <!-- <li><a href="">Category</a></li> -->
 
-                        <!-- dropdown list items will show when we click the drop button -->
-                        <div id="list-items">
-                            <a href="#"> Option 1 </a>
+                        <!-- dropdown list items will show when we click the drop button  -->
+                        <!-- <div id="list-items"> -->
+                            
+                            <!-- <a href="#"> Option 1 </a>
                             <a href="#"> Option 2 </a>
                             <a href="#"> Option 3</a>
-                            <a href="#"> Option 4 </a>
-                        </div>
+                            <a href="#"> Option 4 </a> -->
+                        <!-- </div> 
+                </li> -->
+                <!-- <li><a href="{% url 'customer_app:pro_item_list' %}">Products</a></li>  -->
+                
+                <li>
+                    <form action="{% url 'admin_app:p_details' %}" method="post">
+                        {% csrf_token %}
+                    <select name="cat_list" id="">
+                        {{res}}
+                        {% for i in res %}
+                        <option value="{{i.cat_id}}" > {{i.cat_name}}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="Open">
+                    </form> 
                 </li>
-                <li><a href="{% url 'customer_app:pro_item_list' %}">Products</a></li>
-                <li><a href="">Contact</a></li>
+                <li><a href="{% url 'customer_app:contact' %}">Contact Us</a></li>
             </ul>
         </div>
         <div id="nav-icons">

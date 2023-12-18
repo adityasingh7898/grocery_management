@@ -114,4 +114,5 @@ def change_pwd_view(request,pk):
     return render(request=request,template_name='create_pwd.html',context={'form':form})
 
 
-
+def contact_view(request):
+    return render(request=request,template_name='contact.html')
