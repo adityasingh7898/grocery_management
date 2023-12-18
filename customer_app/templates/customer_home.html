@@ -181,7 +181,7 @@
                 <!-- <li><a href="{% url 'customer_app:pro_item_list' %}">Products</a></li>  -->
                 
                 <li>
-                    <form action="{% url 'admin_app:p_details' %}" method="post">
+                    <form action="{% url 'customer_app:pro_item_list' %}" method="post">
                         {% csrf_token %}
                     <select name="cat_list" id="">
                         {{res}}
