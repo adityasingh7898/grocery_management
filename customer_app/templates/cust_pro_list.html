@@ -39,36 +39,12 @@
         <div class="container-fluid">
             <div class="collapse navbar-collapse d-flex justify-content-between flex-wrap " id="navbarSupportedContent">
                 <ul class="navbar-nav d-flex mb-2 mb-lg-0">
-                    <li class="nav-item">
+                    <li class="nav-item mx-3">
                         <a class="nav-link active" aria-current="page" href="{% url 'customer_app:customer_home' %}"> Home </a>
-                    </li>
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Category
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Option 1</a></li>
-                            <li><a class="dropdown-item" href="#">Option 2</a></li>
-                            <li><a class="dropdown-item" href="#">Option 3</a></li>
-                        </ul>
-                    </li> -->
-                    <li>
-                        <form action="{% url 'admin_app:p_details' %}" method="post" style="margin-top: 3%;">
-                            {% csrf_token %}
-                        <select name="cat_list" id="dl" >
-                            <option value="">Search by Category</option></a>
-                            {% for i in res %}
-                            <option value="{{i.cat_id}}" >{{i.cat_name}}</option>
-                            {% endfor %}
-                        </select>
-                        <input type="submit" value="submit">
-                        </form> 
-                    </li>
-                    <li class="nav-item">
+                    <li class="nav-item mx-3">
                         <a class="nav-link" href="#"> Product </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mx-3">
                         <a class="nav-link" href="{% url 'customer_app:contact' %}"> Contact </a>
                     </li>
                 </ul>
@@ -102,8 +78,7 @@
         <div class="card m-3" style="width: 18rem;">
             <img src="{{i.img.url}}" class="card-img-top" alt="cardImg">
             <div class="card-body">
-                <!-- <h2 class="card-title">Id: {{i.item_id}}</h2> -->
-                <h2 class="card-title">Name: {{i.item_name}}</h2>
+                <h2 class="card-title">{{i.item_name}}</h2>
                 <p class="card-text">Desc: {{i.item_desc}}</p>
                 <h5 class="card-title">Quantity: {{i.item_quantity}}</h5>
                 <h5 class="card-title">Price: {{i.price}}</h5>

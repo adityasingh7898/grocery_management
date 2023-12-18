@@ -64,11 +64,11 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <div class="collapse navbar-collapse d-flex justify-content-between flex-wrap " id="navbarSupportedContent">
-                <ul class="navbar-nav d-flex mb-2 mb-lg-0">
-                    <li class="nav-item">
+                <ul class="navbar-nav d-flex mb-2 mb-lg-0 m">
+                    <li class="nav-item mx-3">
                         <a class="nav-link active" aria-current="page" href="#"> Home </a>
                     </li>
-                    <li>
+                    <li class="nav-item mx-3">
                         <form action="{% url 'admin_app:p_details' %}" method="post" style="margin-top: 3%;">
                             {% csrf_token %}
                         <select name="cat_list" id="dl" >
@@ -77,13 +77,13 @@
                             <option value="{{i.cat_id}}" >{{i.cat_name}}</option>
                             {% endfor %}
                         </select>
-                        <input type="submit" value="submit">
+                        <input type="submit" value=" Submit ">
                         </form> 
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mx-3">
                         <a class="nav-link" href="{% url 'customer_app:pro_item_list' %}"> Product </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mx-3">
                         <a class="nav-link" href="{% url 'customer_app:contact' %}"> Contact </a>
                     </li>
                 </ul>
@@ -120,28 +120,6 @@
             </div>
         </div>
     </div>
-</body>
-<script>
-    //show and hide dropdown list item on button click
-    function cat_show_hide() {
-        var click = document.getElementById("list-items");
-        if (click.style.display === "none") {
-            click.style.display = "block";
-        } else {
-            click.style.display = "none";
-        }
-    }
-    function profile_show_hide() {
-        var click = document.getElementById("profile-items");
-        if (click.style.display === "none") {
-            click.style.display = "block";
-        } else {
-            click.style.display = "none";
-        }
-    }
-</script>
-
-
 </body>
 
 </html>
