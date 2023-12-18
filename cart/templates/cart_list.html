@@ -7,18 +7,33 @@
 
     <style>
         button{
-            background-color: rgb(95, 161, 75);
+            background-color: rgba(139, 233, 110, 0.866);
             color: black;
             border-radius: 5px;
             padding: 8px;
+            font-size: medium;
             
         }
         #buy_btn{
             margin-top: 2%;
             padding: 10px;
+            margin-left: 49%;
+            background-color: rgba(147, 231, 20, 0.745);
         }
         #table1{
-            background-color: aqua;
+            background-color: rgba(0, 255, 255, 0.352);
+        }
+
+        table{
+            margin-top: 2%;
+            text-align: center;
+            margin-left: 38%;
+            font-size: large;
+        }
+
+        h3{
+            text-align: center;
+            font-size: larger;
         }
     </style>
 </head>
@@ -26,13 +41,13 @@
 <body>
     <div>
         {% if res %}
-        <h2> welcome to {{user}}</h2>
+        <h2> welcome to {{user}}</h2><br><br>
         <h3>Your cart</h3>
         <table border="1px solid" cellpadding="4px">
             <tr id="table1">
-                <th>item_id</th>
-                <th>item_name</th>
-                <th>item_price</th>
+                <th>Item_id</th>
+                <th>Item_name</th>
+                <th>Item_price</th>
                 <th>Remove</th>
             </tr>
             {% for i in res %}
