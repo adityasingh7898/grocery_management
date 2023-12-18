@@ -175,22 +175,8 @@
                             <!-- <a href="#"> Option 1 </a>
                             <a href="#"> Option 2 </a>
                             <a href="#"> Option 3</a>
-                            <a href="#"> Option 4 </a> -->
-                        <!-- </div> 
-                </li> -->
-                <!-- <li><a href="{% url 'customer_app:pro_item_list' %}">Products</a></li>  -->
-                
-                <li>
-                    <form action="{% url 'customer_app:pro_item_list' %}" method="post">
-                        {% csrf_token %}
-                    <select name="cat_list" id="">
-                        {{res}}
-                        {% for i in res %}
-                        <option value="{{i.cat_id}}" > {{i.cat_name}}</option>
-                        {% endfor %}
-                    </select>
-                    <input type="submit" value="Open">
-                    </form> 
+                            <a href="#"> Option 4 </a>
+                        </div>
                 </li>
                 <li><a href="{% url 'customer_app:contact' %}">Contact Us</a></li>
             </ul>
