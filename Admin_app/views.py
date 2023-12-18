@@ -40,6 +40,10 @@ def category_delete_view(request,pk):
         return redirect('/admin_app/category_list')
     return render(request=request,template_name='category_delete.html',context={'data':res})
 
+def cust_prod_list_view(request):
+    res=category_items.objects.all()
+    return render(request=request,template_name='cust_prod_list.html',context={'data':res})
+
 
 #   ============ (item) PRODUCT Register, List, Update, Delete
 def item_register_view(request):
@@ -61,6 +65,7 @@ def item_list_view(request):
 def item_details_view(request):
     if request.method=='POST':
         res=product_item.objects.filter(cat_id=request.POST['cat_list'])
+        return render(request=request,template_name='cust_prod_list.html',context={'data':res})
     return render(request=request,template_name='item_list.html',context={'data':res})
 
 

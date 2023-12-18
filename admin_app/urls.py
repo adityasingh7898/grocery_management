@@ -1,9 +1,11 @@
 from django.urls import path
-from admin_app.views import category_register_view, category_list_view, category_update_view, category_delete_view, item_register_view, item_list_view, item_update_view, item_delete_view,item_details_view
+from admin_app.views import category_register_view, category_list_view, category_update_view, category_delete_view, item_register_view, item_list_view, item_update_view, item_delete_view,item_details_view,cust_prod_list_view
 app_name='admin_app'
 urlpatterns = [
     path(route='category_register/',view=category_register_view,name="category_register"),
     path(route='category_list/',view=category_list_view,name="category_list"),
+    path(route='cust_category_list/',view=cust_prod_list_view,name="cust_category_list"),
+
     path(route='category_update/<int:pk>/',view=category_update_view,name="category_update"),
     path(route='category_delete/<int:pk>/',view=category_delete_view,name="category_delete"),
 
