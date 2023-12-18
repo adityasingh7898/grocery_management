@@ -30,12 +30,11 @@
             /* box-shadow: 6px 6px 6px red; */
             /* margin-left: 80px; */
             padding: 0.5%;
-            margin: 5px;
         }
 
         .cardImg {
             height: 150px;
-            width: 195px;
+            width: 260px;
             border-radius: 8px;
         }
 
@@ -123,7 +122,7 @@
             <h2>{{i.item_name}}</h2>
             <p>{{i.item_desc}}</p>
             <div>{{i.item_quantity}}</div>
-            <div>{{i.price}}</div><br>
+            <div>{{i.price}}</div>
 
             <a href="{% url 'cart_app:cart_register' p_id=i.item_id cust_id=user.id iname=i.item_name iprice=i.price %}"><button class="cardButton">Add cart</button></a>
         </div>
@@ -133,7 +132,7 @@
         {% else %}
         <h2>Data is not found</h2>
         {% endif %}
-    </div>
+    </div><br>
 
 </body>
 
