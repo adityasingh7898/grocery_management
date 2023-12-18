@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,189 +9,103 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        }
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+            }
+            #head {
+                /* border: 2px solid red; */
+                display: flex;
+                justify-content: center;
+            }
+        
+            .head-item {
+                /* border: 2px solid blue; */
+                padding-left: 2em;
+                padding-right: 2em;
+                padding-top: 3em;
+            }
+            #head-title{
+                padding-top: 8em;
+                font-size: 20px;
     
-        #navbar {
-            display: flex;
-            justify-content: space-between;
-            background-color: rgba(169, 169, 169, 0.505);
-        }
-    
-        #nav-item ul {
-            display: flex;
-            list-style: none;
-            margin: 5px;
-            padding: 5px;
-        }
-    
-        #nav-item ul li {
-            font-size: 1.2em;
-            margin: 0px 40px;
-        }
-    
-        #nav-icons {
-            display: flex;
-            padding-top: 1%;
-            margin-left: 87%;
-            margin-top: -4%;
-        }
-    
-        #nav-icons ul {
-            display: flex;
-            list-style: none;
-            margin: 5px;
-            padding: 5px;
-        }
-    
-        #nav-icons ul li {
-            font-size: 1.2rem;
-            margin: 0px 10px;
-        }
-    
-        /*position of dropdown */
-        .dropdown {
-            display: block;
-        }
-    
-        /* set the size and position of button on web */
-        .button {
-            font-family: inherit;
-            font-size: inherit;
-            border: none;
-        }
-    
-        /* provide css to background of list items */
-        #list-items {
-            display: none;
-            position: relative;
-            background-color: white;
-            width: 156.5px;
-        }
-    
-        /* provide css to list items */
-        #list-items a {
-            display: block;
-            font-size: 15px;
-            border: 1px solid black;
-            color: black;
-            text-decoration: none;
-            padding: 1em;
-            text-align: center;
-        }
-    
-        #profile-items {
-            display: none;
-            position: relative;
-            background-color: white;
-            width: 120px;
-        }
-    
-        /* provide css to list items */
-        #profile-items a {
-            display: block;
-            font-size: 15px;
-            border: 1px solid black;
-            color: black;
-            text-decoration: none;
-            padding: 0.5em;
-            text-align: center;
-            border-radius: 5px;
-            background-color: rgb(34, 113, 34);
-            color: aliceblue;
-
-        }
-    
-        #head {
-            /* border: 2px solid red; */
-            display: flex;
-            justify-content: center;
-        }
-    
-        .head-item {
-            /* border: 2px solid blue; */
-            padding-left: 2em;
-            padding-right: 2em;
-            padding-top: 3em;
-        }
-        #head-title{
-            padding-top: 8em;
-            font-size: 20px;
-
-        }
-        .head-item img {
-            width: 100%;
-            height: auto;
-        }
-    
-        #start-btn {
-            background-color: rgb(34, 113, 34);;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 1em;
-            margin-top: 25%;
-            
-        }
-        a{
-            text-decoration: none;
-            color: rgb(67, 67, 67)
-        }
-
-        #dl{
-            font-size: large;
-        }
-
-    </style>
+            }
+            .head-item img {
+                width: 100%;
+                height: auto;
+            }
+        
+            #start-btn {
+                background-color: rgb(34, 113, 34);;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                padding: 1em;
+                margin-top: 25%;
+                
+            }
+            a{
+                text-decoration: none;
+                color: rgb(67, 67, 67)
+            }
+        </style>
 
 </head>
+
 <body>
 
-    <div id="navbar">
-        <div id="nav-item">
-            <ul>
-                <li><a href="">Home</a></li>
-                                
-                <li>
-                    <form action="{% url 'admin_app:p_details' %}" method="post">
-                        {% csrf_token %}
-                    <select name="cat_list" id="dl" >
-                        <option value="">Search by Category</option></a>
-                        {% for i in res %}
-                        <option value="{{i.cat_id}}" >{{i.cat_name}}</option>
-                        {% endfor %}
-                    </select>
-                    <input type="submit" value="submit">
-                    </form> 
-
-                    <li><a href="{% url 'customer_app:pro_item_list' %}">Products</a></li> 
-                            <!-- <a href="#"> Option 4 </a> -->
-                    <li><a href="{% url 'customer_app:contact' %}">Contact Us</a></li>
-            </div>
-                </li>
-            </ul>
-        </div>
-        <div id="nav-icons">
-            <ul>
-                <li><a href="{% url 'cart_app:cart_list' %}"><i class="fa-solid fa-cart-shopping"></i></a></li>
-                <li>
-                    <div class="dropdown">
-                        <button onclick="profile_show_hide()" class="button"><i class="fa-solid fa-user"> </i> </button>
-
-                        <!-- dropdown list items will show when we click the drop button -->
-                        <div id="profile-items">
-                            <a href="{% url 'customer_app:login_demo'%}">Login</a>
-                            <a href="{% url 'customer_app:login_demo' %}">Logout</a>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse d-flex justify-content-between flex-wrap " id="navbarSupportedContent">
+                <ul class="navbar-nav d-flex mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#"> Home </a>
+                    </li>
+                    <li>
+                        <form action="{% url 'admin_app:p_details' %}" method="post" style="margin-top: 3%;">
+                            {% csrf_token %}
+                        <select name="cat_list" id="dl" >
+                            <option value="">Search by Category</option></a>
+                            {% for i in res %}
+                            <option value="{{i.cat_id}}" >{{i.cat_name}}</option>
+                            {% endfor %}
+                        </select>
+                        <input type="submit" value="submit">
+                        </form> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'customer_app:pro_item_list' %}"> Product </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'customer_app:contact' %}"> Contact </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav d-flex">
+                    <li class="nav-item"><button type="button" class="btn btn-light">
+                        <a href="{% url 'cart_app:cart_list' %}">
+                            <i class="fa-solid fa-cart-shopping"></i></a></button></li>
+                    <li class="nav-item dropdown text-end">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown"
+                                data-bs-display="static" aria-expanded="false">
+                                <i class="fa-solid fa-user"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-lg-end">
+                                <li><a class="dropdown-item" href="{% url 'customer_app:login_demo' %}">Logout</a></li>
+                            </ul>
                         </div>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </nav>
 
     <div id="head">
         <div class="head-item">
@@ -227,5 +142,6 @@
 </script>
 
 
-</body> 
+</body>
+
 </html>
