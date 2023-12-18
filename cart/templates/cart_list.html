@@ -76,6 +76,7 @@
                                 <i class="fa-solid fa-user"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-lg-end">
+                                <li><p class="dropdown-item" > {{user}} </p> </li>
                                 <li><a class="dropdown-item" href="{% url 'customer_app:login_demo' %}">Logout</a></li>
                             </ul>
                         </div>
@@ -87,7 +88,7 @@
 
     <div>
         {% if res %}
-        <h2> welcome to {{user}}</h2><br><br>
+        <h2 class="text-center m-2"> WELCOME {{user}}</h2><br><br>
         <h3>Your cart</h3>
         <table border="1px solid" cellpadding="4px">
             <tr id="table1">

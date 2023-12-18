@@ -58,6 +58,7 @@
                                 <i class="fa-solid fa-user"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-lg-end">
+                                <li><p class="dropdown-item" > {{user}} </p> </li>
                                 <li><a class="dropdown-item" href="{% url 'customer_app:login_demo' %}">Logout</a></li>
                             </ul>
                         </div>
@@ -71,7 +72,7 @@
     {% for i in messages %}
     <h2>{{i}}</h2>
     {% endfor %}
-    <h3 id="h">Items List</h3>
+    <h3 id="h" class="text-center m-2"> ITEM LIST </h3>
     <div class="class_list d-flex justify-content-evenly flex-wrap m-5 ">
         {% if data %}
         {% for i in data %}
