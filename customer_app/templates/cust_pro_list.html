@@ -26,7 +26,14 @@
             border-radius: 8%;
         }
         .card{
+            height: 27rem;
+            text-align: center;
+            
+        }
+        .card:hover{
             height: 30rem;
+            text-align: center;
+            border-radius: 2%;
         }
 
     </style>
@@ -103,7 +110,7 @@
             <img src="{{i.img.url}}" class="card-img-top" alt="cardImg">
             <div class="card-body">
                 <!-- <h2 class="card-title">Id: {{i.item_id}}</h2> -->
-                <h2 class="card-title">Name: {{i.item_name}}</h2>
+                <h2 class="card-title">{{i.item_name}}</h2>
                 <p class="card-text">Desc: {{i.item_desc}}</p>
                 <h5 class="card-title">Quantity: {{i.item_quantity}}</h5>
                 <h5 class="card-title">Price: {{i.price}}</h5>
