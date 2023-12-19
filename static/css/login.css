@@ -14,8 +14,8 @@ body
     justify-content: center;
     align-items: center;
     background: none;
-    /* background-size: 100% 100vh; */
-}
+    background-size: 100% 100vh; 
+} 
 .pContainerChilren{
     display: flex;
     flex-basis:49.98%;
