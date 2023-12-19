@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+         #btn1{
+         margin-top: 20px;  
+         margin-left:-20%;
+         font-size: 15px; 
+         border-radius: 10px; 
+         padding: 5px;
+         }
+
+        *{
+            text-align: left;
+            margin: 0;
+            padding: 0;
+        }
+        form{
+            background-color: rgb(163,163,227);
+            margin-left: 30%;
+            margin-top: 2%;
+            align-items: center;
+            color: black;
+            font-weight:500;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 5x 5px 5px rgb(86, 95, 191);
+            width: 500px;
+            height: 380px;
+            padding-top: 50px;
+            padding-left: 10%;
+            font-size: x-large;
+            text-align: center;
+        }
+        
+       
+    </style>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+       <table>
+        {{form}}
+       </table><br>
+    <input id="btn1" type="submit" value="Update">
+    </form>
+</body>
+</html>

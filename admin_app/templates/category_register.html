@@ -92,6 +92,9 @@
             </ul>
         </nav>
     <div id="form">
+        {% for i in messages %}
+        <h2>{{i}}</h2>
+        {% endfor %}
         <form action="" method="post">
             {% csrf_token %}
 

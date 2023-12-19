@@ -69,7 +69,22 @@ class customer_register_form(forms.ModelForm):
                 user.save()
             return user
         
+
+class customer_update_form(forms.ModelForm):
+    class Meta:
+        model = customer_model
+        fields = ['first_name','last_name','email','phone','gender','dob']
+
+    def clean_phone(self):
+        phone = self.cleaned_data['phone']
+        if len(str(phone)) != 10:
+            raise forms.ValidationError('Phone number should be 10 digits')
+        if str(phone)[0] not in '9876':
+            raise forms.ValidationError('Phone numbers start with either 9,8,7,6')
+        return phone
+        
     
+
 class customer_login_form(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)

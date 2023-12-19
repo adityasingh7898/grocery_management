@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from admin_app.models import category_items,product_item
-from customer_app.forms import customer_register_form,customer_login_form,change_pwd_form
+from customer_app.forms import customer_register_form,customer_login_form,change_pwd_form,customer_update_form
 from django.contrib.auth import authenticate,login,logout
 from customer_app.models import customer_model
 from django.contrib.auth.decorators import login_required
@@ -25,19 +25,6 @@ def customer_register_view(request):
             messages.error(request,"Not Registered.")
     return render(request=request,template_name='customer_register.html',context={'form':form})
 
-# def customer_login_view(request):
-#     form=customer_login_form()
-#     if request.method=='POST':
-#         form=customer_login_form(request.POST)
-#         if form.is_valid():
-#             user=authenticate(
-#                 username=form.cleaned_data['username'],password=form.cleaned_data['password'])
-#             if user:
-#                 login(request,user)
-#                 messages.success(request,"Login Successful")
-#                 return redirect('/customer_app/customer_login')
-        
-#     return render(request=request,template_name='login_demo.html',context={'form':form})
 
 def login_demo_view(request):
     form=customer_login_form()
@@ -117,3 +104,16 @@ def change_pwd_view(request,pk):
 def contact_view(request):
     return render(request=request,template_name='contact.html')
 
+def cust_detail_update_view(request,pk):
+    res=customer_model.objects.get(id=pk)
+    form=customer_update_form(instance=res)
+    if request.method=='POST':
+        res=customer_model.objects.get(id=pk)
+        form=customer_update_form(request.POST,instance=res)
+        if form.is_valid():
+            form.save()
+            messages.success(request,"Profile Updated")
+        else:
+            messages.error(request,"Profile is not updated")
+        return redirect('/customer_app/customer_home')
+    return render(request=request,template_name="cust_detail_update.html",context={'form':form})
