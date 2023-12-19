@@ -13,8 +13,8 @@ def cart_register(request,p_id,cust_id,iname,iprice):
     iprice=int(float(iprice))
     res=cart_model.objects.create(cust_id=cust_id,item_id=p_id,item_name=iname,price=iprice)
     print(res.cart_id)
-    messages.success(request,"Product is added")
-    return redirect('/cart/cart_list')
+    messages.success(request,"Product is added to cart")
+    return redirect('/customer_app/pro_item_list/')
 
 @login_required(login_url='/customer_app/login_demo')
 def cart_view(request):
@@ -27,7 +27,7 @@ def cart_view(request):
 def cart_remove(request,cart_id):
     list(messages.get_messages(request))
     cart_model.objects.filter(cart_id=cart_id).delete()
-    messages.success(request,"Product is removed")
+    messages.success(request,"Product is removed from cart")
     return redirect('/cart/cart_list')
 
 

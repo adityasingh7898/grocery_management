@@ -37,6 +37,9 @@ def login_demo_view(request):
                 login(request,user)
                 messages.success(request,"Login Successful")
                 return redirect('/customer_app/customer_home')
+            else:
+                messages.error(request,"username or password incorrcet ")
+
     return render(request=request,template_name='login_demo.html',context={'form':form})
 
 def customer_list_view(request):
@@ -60,6 +63,7 @@ def customer_home_view(request):
 @login_required(login_url='/customer_app/login_demo')
 def customer_logout_view(request):
     logout(request)
+    messages.success(request,'Logout successful')
     return redirect('/customer_app/login_demo')
 
 def forgot_pwd_view(request):
@@ -84,6 +88,7 @@ def forgot_pwd_view(request):
 def customer_otp_view(request,pk):
     if request.method=='POST':
         if str(otp_confirm)==str(request.POST['otp']):
+            messages.success(request,"OTP Verify Successful")
             return redirect(f'/customer_app/change_pwd/{pk}/')
         else:
             return redirect('/customer_app/forgot_pwd')
@@ -97,7 +102,9 @@ def change_pwd_view(request,pk):
         if form.is_valid():
             if form.cleaned_data['enter_new_password']==form.cleaned_data['re_enter_password']:
                 customer_model.objects.filter(id=pk).update(password=make_password(form.cleaned_data['enter_new_password']))
+                messages.success(request,"password change Successful")
                 return redirect('/customer_app/login_demo')
+            messages.error(request,"password not chnaged ")
     return render(request=request,template_name='create_pwd.html',context={'form':form})
 
 

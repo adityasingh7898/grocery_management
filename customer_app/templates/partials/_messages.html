@@ -1,0 +1,12 @@
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li>{% if message.tags == 'success'%} 
+    <h5> {{ message }}</h5>
+        {%else%}
+        <h5> {{ message }}</h5>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
