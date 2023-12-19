@@ -19,25 +19,26 @@
 
     <div class="position-absolute top-50 start-50 translate-middle bg-white border-black shadow-lg p-3 mb-5 bg-body-tertiary rounded
     " style="width: 20rem;">
-        <form action="" method="post">
-            {% csrf_token %}
+    <form action="" method="post">
+        {% csrf_token %}
             <div class="mb-3">
                 <label for="exampleInputName" class="form-label">Name :</label>
-                <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp">
+                <input type="text" class="form-control" name="cust_name" id="exampleInputName" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
                 <label for="exampleInputPhone" class="form-label">Phone :</label>
-                <input type="tel" class="form-control" id="exampleInputPhone">
+                <input type="tel" name="cust_phone" class="form-control" id="exampleInputPhone">
             </div>
             <div class="mb-3">
                 <label for="exampleInputAddress" class="form-label">Address :</label>
-                <input type="text" class="form-control" id="exampleInputAddress">
-            </div>
+                <input type="text" name="cust_address"  class="form-control" id="exampleInputAddress">
+            </div> 
             <div class="d-grid gap-2 col-6 mx-auto">
-                <a href="{% url 'buy_app:order_details'%}"><button class="btn btn-success"  type="button" id="confirmbtn">Confirm to Buy</button></a>
-            </div>
-        </form>
-    </div>
+                <input class="btn btn-success" type="submit" id="confirmbtn" value='Confirm to Buy'>
+               </div>
+           </div>
+    </form>
+       
 </body>
 
 </html>

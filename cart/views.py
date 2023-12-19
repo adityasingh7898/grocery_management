@@ -27,3 +27,5 @@ def cart_remove(request,cart_id):
     cart_model.objects.filter(cart_id=cart_id).delete()
     messages.success(request,"Product is removed")
     return redirect('/cart/cart_list')
+
+

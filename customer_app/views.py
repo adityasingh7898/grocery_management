@@ -20,7 +20,7 @@ def customer_register_view(request):
         if form.is_valid():
             form.save()
             messages.success(request,"Registration Successful.")
-            return redirect('/customer_app/customer_login')
+            return redirect('/customer_app/login_demo')
         else:
             messages.error(request,"Not Registered.")
     return render(request=request,template_name='customer_register.html',context={'form':form})
