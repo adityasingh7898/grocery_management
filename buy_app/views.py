@@ -6,7 +6,7 @@ from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-@login_required(login_url='/customer_app/customer_login')
+@login_required(login_url='/customer_app/login_demo')
 def buy_register(request,total_price):
     if request.method=='POST':
         buy=buy_model.objects.create(cust_id=request.user.id,total_price=total_price,cust_name=request.POST['cust_name'],
