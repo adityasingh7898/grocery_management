@@ -7,16 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grocery Manager</title>
     <style>
+
+        
         
         .gro{
             font-size:200%;
             color:rgba(248, 3, 125, 0.948);
         }
     </style>
-{% load static %}
+        {% load static %}
 
 <!-- below is the external css document link our project-->
-<link rel="stylesheet" href="{% static 'css/login_demo.css'%}">
+            <link rel="stylesheet" href="{% static 'css/login_demo.css'%}">
 
 
 
@@ -49,7 +51,7 @@
 
 </head>
 <body>
-    
+    {% include 'partials/_messages.html' %}
     <div class="" id="pContainer">
         <section class="pContainerChilren" id="pContainerChild1">
         <h1 id="gms"><span class="gro">G</span>rocery <br><span class="gro">M</span>anagement <br><span class="gro">S</span>ystem</h1>
