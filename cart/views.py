@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 @login_required(login_url='/customer_app/login_demo')
 def cart_register(request,p_id,cust_id,iname,iprice):
+    list(messages.get_messages(request))
     print(p_id,cust_id)
     iprice=int(float(iprice))
     res=cart_model.objects.create(cust_id=cust_id,item_id=p_id,item_name=iname,price=iprice)
@@ -24,6 +25,7 @@ def cart_view(request):
 
 @login_required(login_url='/customer_app/login_demo')
 def cart_remove(request,cart_id):
+    list(messages.get_messages(request))
     cart_model.objects.filter(cart_id=cart_id).delete()
     messages.success(request,"Product is removed")
     return redirect('/cart/cart_list')

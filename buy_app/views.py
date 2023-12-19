@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from buy_app.models import buy_model,buyed_item_list
 from django.contrib import messages
+from admin_app.models import product_item
 from cart.models import cart_model
 from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
@@ -15,9 +16,16 @@ def buy_register(request,total_price):
                                     cust_phone=request.POST['cust_phone'],
                                     cust_address=request.POST['cust_address'])
         res=cart_model.objects.filter(cust_id=request.user.id).values()
+        print(res)
         for i in res:
+            #store the item in buyed model
             buyed_item_list.objects.create(buy_id=buy.buy_id,item_id=i['item_id'],item_name=i['item_name'],item_price=i['price'],quantity=i['quantity'])
-        cart_model.objects.filter(cust_id=request.user.id).delete()
+            # quantity update
+            quantity=product_item.objects.get(item_id=i['item_id']).item_quantity
+            print(quantity)
+            product_item.objects.filter(item_id=i['item_id']).update(item_quantity=(quantity-1))
+            #items delete in cart
+            cart_model.objects.filter(cust_id=request.user.id).delete()
         messages.success(request,"Order is placed")
         return redirect('/buy_app/order_details')
     return render(request=request,template_name='buy_confirm.html')
@@ -30,5 +38,10 @@ def buy_view(request):
 
 def order_details(request):
     cust_details=buy_model.objects.filter(cust_id=request.user.id)
+    items_details=buyed_item_list.objects.all()
+    return render(request=request,template_name='order_details.html',context={'cust_details':cust_details,'items_details':items_details})
+
+def order_list(request):
+    cust_details=buy_model.objects.all()
     items_details=buyed_item_list.objects.all()
     return render(request=request,template_name='order_details.html',context={'cust_details':cust_details,'items_details':items_details})
