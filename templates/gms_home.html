@@ -12,7 +12,12 @@
         font-size:200%;
         color:rgba(248, 3, 125, 0.948);
     }
+
+    #pContainer{
+        background-color: aliceblue;
+    }
     
+   
 </style>
 
 <!-- below is the external css link of google font website-->
@@ -30,7 +35,7 @@
 
 
 <!-- the below link is to apply favicon -->
-<link rel="icon" href="">
+<link rel="icon" href="{% static 'images/gro.jpg' %}">
 
 
 <!-- below is external js document link of our project -->
@@ -43,8 +48,8 @@
     
     <div class="" id="pContainer">
         <section class="pContainerChilren" id="pContainerChild1">
-            {% comment %} <img class="logo" id="project_brand__logo" src="{% static 'images/gro.jpg' %}" alt="project_brand__logo" > {% endcomment %}
-        <h1 id="gms"><span class="gro">G</span>rocery <br><span class="gro">M</span>anagement <br><span class="gro">S</span>ystem</h1>
+            <img class="logo" id="project_brand__logo" src="{% static 'images/grocery.png' %}" alt="project_brand__logo" > 
+            <!-- <h1 id="gms"><span class="gro">G</span>rocery <br><span class="gro">M</span>anagement <br><span class="gro">S</span>ystem</h1> -->
         </section>
         <section class="pContainerChilren" id="pContainerChild2"></section>
         <section class="pContainerChilren" id="pContainerChild3"><h1 id="continueAsText">CONTINUE AS</h1>
