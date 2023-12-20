@@ -1,24 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category Register</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
     {% load static %}
     <style>
-        nav{
-            background-color: rgba(249, 250, 248, 0.358);
-            
-            
+        .form-label{
+            font-size:larger;
         }
         
-        .ul1{
+        nav {
+            background-color: rgba(249, 250, 248, 0.358);
+
+
+        }
+
+        .ul1 {
             display: flex;
             width: 50%;
             justify-content: space-evenly;
         }
 
-        .btn{
+        .btn {
             font-size: large;
             margin-top: 20%;
             margin-bottom: 20%;
@@ -26,7 +41,7 @@
             background-color: rgb(207, 206, 206);
         }
 
-        .btn:hover{
+        .btn:hover {
             font-size: large;
             margin-top: 20%;
             margin-bottom: 20%;
@@ -34,64 +49,36 @@
             border-radius: 7px;
         }
 
-        form{
-            text-align: center;
-            margin-top: 5%;
-            font-size: 130%;
-            background-color: rgba(220, 220, 220, 0.397);
-            width: 50%;
-            height: 50%;
-            margin-left: 25%;
-        }
 
-        #button{
-            background-color: rgb(213, 84, 38);
-            padding: 0.5%;
-            font-size: large;
-        }
-
-        #button:hover{
-            background-color: rgb(243, 68, 5);
-            padding: 0.5%;
-            font-size: large;
-            /* border-radius: 2px; */
-        }
-
-        #name{
-            font-size: xx-large;
-            color: rgb(11, 2, 91);
-        }
-        #t_name{
-            font-size: x-large;
-        }
-        /* label{
-            padding-top: 2%;
-        }
-        #form{
-            font-size: x-large;
-            
-        } */
-        body{
-            background-image: url("{% static 'images/img.jpg' %}");
+        body {
+            /* background-image: url("{% static 'images/img.jpg' %}"); */
             /* background-color: bisque; */
         }
     </style>
 
-    
+
 </head>
+
 <body>
-    
-    <div id="img1"> 
+
+    <div id="img1">
         <nav>
-            
+
             <ul class="ul1">
-                <li type="none"><a href="{% url 'admin_app:category_register' %}"><button class="btn">Add Category</button></a></li>
-                <li type="none"><a href="{% url 'admin_app:category_list' %}"><button class="btn">Category List</button></a></li>
-                <li type="none"><a href="{% url 'admin_app:p_list' %}"><button class="btn">Product List</button></a></li>
-                <li type="none"><a href="{% url 'admin_app:p_register' %}"><button class="btn">Add Product</button></a></li>
+                <li type="none"><a href="{% url 'admin_app:category_register' %}"><button class="btn">Add
+                            Category</button></a></li>
+                <li type="none"><a href="{% url 'admin_app:category_list' %}"><button class="btn">Category
+                            List</button></a></li>
+                <li type="none"><a href="{% url 'admin_app:p_list' %}"><button class="btn">Product List</button></a>
+                </li>
+                <li type="none"><a href="{% url 'admin_app:p_register' %}"><button class="btn">Add Product</button></a>
+                </li>
+                <li type="none"><a href="{% url 'buy_app:order_list' %}"><button class="btn">Order List</button></a>
+                </li>
+
             </ul>
         </nav>
-    <div id="form">
+        <!-- <div id="form">
         {% for i in messages %}
         <h2>{{i}}</h2>
         {% endfor %}
@@ -104,10 +91,31 @@
             <input id="button" type="submit" value="Add Category">
         </form>
     </div>
-    </div><br>
-    
+    </div><br> -->
 
-   
+        <div id="form " style="background-color: aliceblue; ">
+            {% for i in messages %}
+            <h2>{{i}}</h2>
+            {% endfor %}
+
+            <div class="position-absolute top-50 start-50 translate-middle bg-white border-black shadow-lg p-3 mb-5 bg-body-tertiary rounded
+        " style="width: 20rem;">
+                <form action="" method="post" style="text-align: center;">
+                    {% csrf_token %}
+                    <div class="m-5">
+                        <label for="exampleInputName" class="form-label">Enter category name:</label>
+                        <input type="text" class="form-control" name="cat_name" id="exampleInputName"
+                            aria-describedby="emailHelp">
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <input class="btn btn-success" type="submit" id="confirmbtn" value='Add Category'>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
 
 </body>
+
 </html>
