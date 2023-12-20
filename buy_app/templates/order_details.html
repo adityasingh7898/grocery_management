@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Details</title>
 </head>
+
 <body>
     {%csrf_token%}
-    <table border="2">
+    <table>
         <tr>
             <th>order_id</th>
             <th>order_date</th>
@@ -15,7 +17,6 @@
             <th>cust_phone</th>
             <th>cust_address</th>
             <th>Items</th>
-            <th>Total_price</th>
         </tr>
         {%for i in cust_details%}
         <tr>
@@ -42,11 +43,14 @@
                 {% endif %}
                 {% endfor %}
             </table>
+            <h2>Total Price: {{i.total_price}}</h2>
             </td>
-            <td>{{i.total_price}}</td>
         </tr>
         {%endfor%}
         
     </table>
+
+
 </body>
+
 </html>

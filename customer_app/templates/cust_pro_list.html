@@ -60,6 +60,7 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-lg-end">
                                 <li><p class="dropdown-item" > {{user}} </p> </li>
+                                <li><a class="dropdown-item" href="{% url 'customer_app:cust_detail_update' pk=user.id %}">Update Profile</a></li>
                                 <li><a class="dropdown-item" href="{% url 'customer_app:login_demo' %}">Logout</a></li>
                             </ul>
                         </div>
@@ -75,7 +76,7 @@
         {% for i in data %}
         <div class="card m-3" style="width: 18rem;">
             <img src="{{i.img.url}}" class="card-img-top" alt="cardImg">
-            <div class="card-body">
+            <div class="card-body" style="text-align: center;">
                 <h2 class="card-title">{{i.item_name}}</h2>
                 <p class="card-text">Desc: {{i.item_desc}}</p>
                 <h5 class="card-title">Quantity: {{i.item_quantity}}</h5>
