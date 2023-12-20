@@ -6,7 +6,7 @@
 body
 {
     /* background: none; */
-    background-color: rgba(126, 42, 165, 0.316);
+    
 }
 #pContainer{
     width: 100%;
@@ -14,6 +14,7 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(181, 203, 222, 0.633);
     /* background: none; */
     background-size: 100% 100vh; 
 } 
