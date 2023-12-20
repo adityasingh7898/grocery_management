@@ -203,7 +203,7 @@ form{
         <div class="title-text">
           <div class="title login">Login Form</div>
           <!-- <div class="title signup">Signup Form</div> -->
-        </div><br>
+        </div>
         <div class="form-container">
          
           <div class="form-inner">
@@ -211,7 +211,7 @@ form{
               {% csrf_token %}
               <div>
                 {{form}}
-              </div><br>
+              </div>
 
               <div class="pass-link"><a href="{% url 'customer_app:forgot_pwd'%}">Forgot password?</a></div>
               <div class="field btn">
