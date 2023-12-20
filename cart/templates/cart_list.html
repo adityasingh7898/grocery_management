@@ -77,6 +77,7 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-lg-end">
                                 <li><p class="dropdown-item" > {{user}} </p> </li>
+                                <li><a class="dropdown-item" href="{% url 'customer_app:cust_detail_update' pk=user.id %}">Update Profile</a></li>
                                 <li><a class="dropdown-item" href="{% url 'customer_app:login_demo' %}">Logout</a></li>
                             </ul>
                         </div>

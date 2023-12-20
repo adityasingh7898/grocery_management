@@ -10,6 +10,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.hashers import make_password
+from customer_app.models import customer_model
 
 # Create your views here.
 
@@ -43,8 +44,8 @@ def login_demo_view(request):
     return render(request=request,template_name='login_demo.html',context={'form':form})
 
 def customer_list_view(request):
-    data = customer_model.objects.all()
-    return render(request=request,template_name='customer_list.html',context={'data':data})
+    data = customer_model.objects.get(id=request.user.id)
+    return render(request=request,template_name='customer_list.html',context={'i':data})
 
 def cust_category_list_view(request):
     res=category_items.objects.all()

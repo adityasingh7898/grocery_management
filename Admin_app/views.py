@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from admin_app.models import category_items,product_item
 from admin_app.forms import product_form
 from django.contrib import messages
+from customer_app.models import customer_model
 
 # Create your views here.
 
@@ -94,3 +95,7 @@ def item_delete_view(request,pk):
             messages.error(request,"Product is not deleted")
         return redirect('/admin_app/p_list')
     return render(request=request,template_name='item_delete.html',context={'data':res})
+
+def customer_list_view(request):
+    data = customer_model.objects.all()
+    return render(request=request,template_name='customers.html',context={'data':data})

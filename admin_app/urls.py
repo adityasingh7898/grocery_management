@@ -1,5 +1,5 @@
 from django.urls import path
-from admin_app.views import category_register_view, category_list_view, category_update_view, category_delete_view, item_register_view, item_list_view, item_update_view, item_delete_view,item_details_view,cust_prod_list_view
+from admin_app.views import *
 app_name='admin_app'
 urlpatterns = [
     path(route='category_register/',view=category_register_view,name="category_register"),
@@ -15,4 +15,5 @@ urlpatterns = [
     path(route='p_details/',view=item_details_view,name="p_details"),
     path(route='p_update/<int:pk>/',view=item_update_view,name="p_update"),
     path(route='p_delete/<int:pk>/',view=item_delete_view,name="p_delete"),
+    path(route='all_cust/',view=customer_list_view,name="all_cust"),
 ]
