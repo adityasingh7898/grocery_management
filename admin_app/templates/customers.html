@@ -3,43 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Category Update</title>
-    {% load static %}
+    <title>List of Customers</title>
     <style>
-        h1{
-            text-align: center;
-            color: brown;
-        }
-
-        body{
-            background-color: rgba(220, 20, 60, 0.184);
-        }
-
-        form{
-            font-size: large;
-            text-align: center;
-            margin-top: 7%;
-        }
-
-        #id_name{
-            font-size: medium;
-            background-color: rgb(208, 233, 234);
-            padding: 0.5%;
-            margin-right: 2%;
-            margin-bottom: 2%;
-            text-align: center;
-        }
-
-        #btn{
-            color: blue;
-            background-color: rgb(223, 222, 222);
-            padding: 0.5%;
-            border-radius: 2%;
-            font-size: large;
-        }
-
         nav{
-            background-color: rgba(224, 222, 222, 0.332);
+            background-color: rgb(224, 222, 222);
             
         }
         
@@ -61,13 +28,11 @@
             font-size: large;
             margin-top: 20%;
             margin-bottom: 20%;
+            border-radius: 2%;
             background-color: rgb(159, 157, 157);
             border-radius: 7px;
         }
 
-        #id_name1{
-            font-size: larger;
-        }
     </style>
 </head>
 <body>
@@ -84,17 +49,32 @@
             </li>
         </ul>
     </nav>
-
-    <div>
-        <!-- <h1>Update Page</h1> -->
-        <form action="" method="post">
-            {% csrf_token %}
-            <h2 style="color: crimson;">To update category</h2><br>
-            <label id="id_name1" for="id_name"><b>Category Name:</b></label>
-            <input type="text" name="name" id="id_name" value="{{data.cat_name}}">
-
-        <input id="btn" type="submit" value="Update">
-        </form>
+    <h1 style="text-align:center;color:red">List of Customers</h1>
+    <div style="text-align:center;margin-left:23%">
+        {% if data %}
+        <table border="3">
+            <tr style="color:blue">
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>UserName</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>DOB</th>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{i.first_name}}</td>
+                <td>{{i.last_name}}</td>
+                <td>{{i.username}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.phone}}</td>
+                <td>{{i.dob}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <h1>Data is not found</h1>
+        {% endif %}
     </div>
     
 </body>
