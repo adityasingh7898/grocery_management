@@ -15,107 +15,58 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
-    {% load static %}
-    <style>
-        .form-label{
-            font-size:larger;
-        }
-        
-        nav {
-            background-color: rgba(249, 250, 248, 0.358);
-
-
-        }
-
-        .ul1 {
-            display: flex;
-            width: 50%;
-            justify-content: space-evenly;
-        }
-
-        .btn {
-            font-size: large;
-            margin-top: 20%;
-            margin-bottom: 20%;
-            border-radius: 2%;
-            background-color: rgb(207, 206, 206);
-        }
-
-        .btn:hover {
-            font-size: large;
-            margin-top: 20%;
-            margin-bottom: 20%;
-            background-color: rgb(159, 157, 157);
-            border-radius: 7px;
-        }
-
-
-        body {
-            /* background-image: url("{% static 'images/img.jpg' %}"); */
-            /* background-color: bisque; */
-        }
-    </style>
-
-
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse d-flex justify-content-between flex-wrap " id="navbarSupportedContent">
+                <ul class="navbar-nav d-flex mb-2 mb-lg-0 m">
 
-    <div id="img1">
-        <nav>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="{% url 'admin_app:category_register' %}"> Home </a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="{% url 'admin_app:category_list' %}"> Category List</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="{% url 'admin_app:p_list' %}"> Product List </a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="{% url 'admin_app:p_register' %}"> Add Product </a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="{% url 'admin_app:all_cust' %}"> Customer List </a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="{% url 'buy_app:order_list' %}"> Order List </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-            <ul class="ul1">
-                <li type="none"><a href="{% url 'admin_app:category_register' %}"><button class="btn">Add
-                            Category</button></a></li>
-                <li type="none"><a href="{% url 'admin_app:category_list' %}"><button class="btn">Category
-                            List</button></a></li>
-                <li type="none"><a href="{% url 'admin_app:p_list' %}"><button class="btn">Product List</button></a>
-                </li>
-                <li type="none"><a href="{% url 'admin_app:p_register' %}"><button class="btn">Add Product</button></a>
-                </li>
-                <li type="none"><a href="{% url 'admin_app:all_cust' %}"><button class="btn">Customers List</button></a>
-                </li>
-                <li type="none"><a href="{% url 'buy_app:order_list' %}"><button class="btn">Order List</button></a>
-                </li>
-
-            </ul>
-        </nav>
-        <!-- <div id="form">
+    <div id="form " style="background-color: aliceblue; ">
         {% for i in messages %}
         <h2>{{i}}</h2>
         {% endfor %}
-        <form action="" method="post">
-            {% csrf_token %}
 
-            <label id="name" for="id_name"><b>Enter category name:</b></label><br>
-            <input type="text" name="cat_name" id="t_name"><br><br>
-
-            <input id="button" type="submit" value="Add Category">
-        </form>
-    </div>
-    </div><br> -->
-
-        <div id="form " style="background-color: aliceblue; ">
-            {% for i in messages %}
-            <h2>{{i}}</h2>
-            {% endfor %}
-
-            <div class="position-absolute top-50 start-50 translate-middle bg-white border-black shadow-lg p-3 mb-5 bg-body-tertiary rounded
+        <div class="position-absolute top-50 start-50 translate-middle bg-white border-black shadow-lg p-3 mb-5 bg-body-tertiary rounded
         " style="width: 20rem;">
-                <form action="" method="post" style="text-align: center;">
-                    {% csrf_token %}
-                    <div class="m-5">
-                        <label for="exampleInputName" class="form-label">Enter category name:</label>
-                        <input type="text" class="form-control" name="cat_name" id="exampleInputName"
-                            aria-describedby="emailHelp">
-                    </div>
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                        <input class="btn btn-success" type="submit" id="confirmbtn" value='Add Category'>
-                    </div>
-                </form>
-            </div>
-
+            <form action="" method="post" style="text-align: center;">
+                {% csrf_token %}
+                <div class="m-5">
+                    <label for="exampleInputName" class="form-label">Enter category name:</label>
+                    <input type="text" class="form-control" name="cat_name" id="exampleInputName"
+                        aria-describedby="emailHelp">
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <input class="btn btn-success" type="submit" id="confirmbtn" value='Add Category'>
+                </div>
+            </form>
         </div>
+
+    </div>
 
 
 </body>
