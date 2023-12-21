@@ -70,15 +70,15 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <div class="collapse navbar-collapse d-flex justify-content-between flex-wrap " id="navbarSupportedContent">
-                <ul class="navbar-nav d-flex mb-2 mb-lg-0 m">
+                <ul class="navbar-nav d-flex mb-2 mb-lg-0 ">
                     <li class="nav-item mx-3">
                         <a class="nav-link active" aria-current="page" href="#"> Home </a>
                     </li>
                     <li class="nav-item mx-3">
                         <form action="{% url 'admin_app:p_details' %}" method="post" style="margin-top: 3%;">
                             {% csrf_token %}
-                        <select name="cat_list" id="dl" >
-                            <option value="">Search by Category</option></a>
+                        <select name="cat_list" id="dl" style="background-color: green; color: white;" >
+                            <option value="">Search by Category</option>
                             {% for i in res %}
                             <option value="{{i.cat_id}}" >{{i.cat_name}}</option>
                             {% endfor %}
