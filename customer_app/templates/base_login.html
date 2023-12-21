@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block title %}
     {% endblock %}
+    {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
     <style>
         html,body{
         height: 100%;
@@ -29,17 +32,20 @@
         }
         form{
             background-color: rgb(219, 219, 219);
-            margin-left: 30%;
-            margin-top: 2%;
+            margin-top: 5%;
+            margin-left: 25%;
+            margin-right: 25%;
+            margin-bottom: 5%;
             align-items: center;
             color: black;
-            font-weight:500;
+            font-weight:400;
             border: 2px solid black;
             border-radius: 10%;
             box-shadow: 5x 5px 5px rgb(106, 10, 6);
-            width: 40%;
-            height: 50%;
+            height: 500;
             padding-top: 50px;
+            padding-right:90px;
+            padding-bottom:20px;
             font-size: large;
             text-align: left;
         }

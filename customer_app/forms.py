@@ -11,6 +11,12 @@ class customer_register_form(forms.ModelForm):
         model = customer_model
         fields = ['username','first_name','last_name','email','phone','gender','dob','password']
 
+    def __init__(self, *args, **kwargs):
+        super(customer_register_form, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+            field.widget.attrs['placeholder'] = 'Enter '+ str(field_name)
+            
     def clean_username(self):
         username = self.cleaned_data['username']
         if not(username[0].isupper()):
@@ -74,6 +80,11 @@ class customer_update_form(forms.ModelForm):
     class Meta:
         model = customer_model
         fields = ['first_name','last_name','email','phone','gender','dob']
+    
+    def __init__(self, *args, **kwargs):
+        super(customer_update_form, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
 
     def clean_phone(self):
         phone = self.cleaned_data['phone']
@@ -88,6 +99,11 @@ class customer_update_form(forms.ModelForm):
 class customer_login_form(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
+    def __init__(self, *args, **kwargs):
+        super(customer_login_form, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+            field.widget.attrs['placeholder'] = 'Enter '+ str(field_name)
 
     def clean_username(self):
         username = self.cleaned_data['username']
@@ -136,6 +152,11 @@ class customer_login_form(forms.Form):
 class change_pwd_form(forms.Form):
     enter_new_password=forms.CharField(widget=forms.PasswordInput,validators=[clean_enter_new_password])
     re_enter_password=forms.CharField(widget=forms.PasswordInput)
+    def __init__(self, *args, **kwargs):
+        super(change_pwd_form, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+            field.widget.attrs['placeholder'] = 'Enter '+ str(field_name)
 
     def clean_re_enter_password(self):
         password = self.cleaned_data['re_enter_password']

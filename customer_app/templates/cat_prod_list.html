@@ -109,48 +109,7 @@
 
 <body>
     {% include 'partials/_messages.html'%}
-    <div id="navbar">
-        <div id="nav-item">
-            <ul>
-                <li><a href="">Home</a></li>
-                                
-                <li>
-                    <form action="{% url 'admin_app:p_details' %}" method="post">
-                        {% csrf_token %}
-                    <select name="cat_list" id="dl" >
-                        <option value="">Search by Category</option></a>
-                        {% for i in res %}
-                        <option value="{{i.cat_id}}" >{{i.cat_name}}</option>
-                        {% endfor %}
-                    </select>
-                    <input type="submit" value="submit">
-                    </form> 
-
-                    <li><a href="{% url 'customer_app:pro_item_list' %}">Products</a></li> 
-                            <!-- <a href="#"> Option 4 </a> -->
-                    <li><a href="{% url 'customer_app:contact' %}">Contact Us</a></li>
-            </div>
-                </li>
-            </ul>
-        </div>
-        <div id="nav-icons">
-            <ul>
-                <li><a href="{% url 'cart_app:cart_list' %}"><i class="fa-solid fa-cart-shopping"></i></a></li>
-                <li>
-                    <div class="dropdown">
-                        <button onclick="profile_show_hide()" class="button"><i class="fa-solid fa-user"> </i> </button>
-
-                        <!-- dropdown list items will show when we click the drop button -->
-                        <div id="profile-items">
-                            <a href="{% url 'customer_app:login_demo'%}">Login</a>
-                            <a href="{% url 'customer_app:login_demo' %}">Logout</a>
-                        </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-    
-     
+    {% include 'partials/_header.html'%}
     
     {% for i in messages %}
     <h2>{{i}}</h2>
