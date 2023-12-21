@@ -57,10 +57,10 @@
             <div class="card-body" style="text-align: center;">
                 <img src="{{i.img.url}}" class="card-img-top" alt="cardImg">
                 <!-- <h2 class="card-title">ID:{{i.item_id}}</h2> -->
-                <h2 class="card-title">Name:{{i.item_name}}</h2>
-                <h2 class="card-title">Description{{i.item_desc}}</h2>
-                <h2 class="card-title">Quantity:{{i.item_quantity}}</h2>
-                <h2 class="card-title">Price:{{i.price}}</h2>
+                <h4 class="card-title">Name:{{i.item_name}}</h4>
+                <h4 class="card-title">Description{{i.item_desc}}</h4>
+                <h4 class="card-title">Quantity:{{i.item_quantity}}</h4>
+                <h4 class="card-title">Price:{{i.price}}</h4>
                 
                 <a href="{% url 'admin_app:p_update' pk=i.item_id %}" class="btn btn-success"> Update </a>
                 <a href="{% url 'admin_app:p_delete' pk=i.item_id %}" class="btn btn-danger"> Delete </a>
