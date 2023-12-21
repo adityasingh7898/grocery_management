@@ -56,69 +56,54 @@
                 color: rgb(67, 67, 67)
             }
 
-            /* .nav-item{
-                margin-left: 10%;
-                margin-right: 30%;
-            } */
-        </style>
+            /* Footer css */
+           
+            h1,h2 {
+                text-align: center;
+                padding-bottom: 2%;
+            }
 
+            p {
+                font-size: large;
+                text-align: center;
+            }
+            #contact  {
+                align-items: center;
+                font-size: 40px;
+                padding-left: 45%;
+                /* border: 5px solid red; */
+            }
+        
+            #copy{
+                margin-top: 3%;
+            }
+            #contact{
+                margin-top: 4%;
+            }
+            .row{
+                display:flex;
+                justify-content: space-evenly;
+                margin-top: 3%;
+                
+                
+            }
+            footer{
+                background-color: rgb(46, 46, 46);
+                color: white;
+                height: 20;
+            }
+        
+        </style>
 </head>
 
 <body>
     {% include 'partials/_messages.html' %}
+    {% include 'partials/_header.html' %}
     
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse d-flex justify-content-between flex-wrap " id="navbarSupportedContent">
-                <ul class="navbar-nav d-flex mb-2 mb-lg-0 m">
-                    <li class="nav-item mx-3">
-                        <a class="nav-link active" aria-current="page" href="#"> Home </a>
-                    </li>
-                    <li class="nav-item mx-3">
-                        <form action="{% url 'admin_app:p_details' %}" method="post" style="margin-top: 3%;">
-                            {% csrf_token %}
-                        <select name="cat_list" id="dl" >
-                            <option value="">Search by Category</option></a>
-                            {% for i in res %}
-                            <option value="{{i.cat_id}}" >{{i.cat_name}}</option>
-                            {% endfor %}
-                        </select>
-                        <input type="submit" value=" Submit ">
-                        </form> 
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link" href="{% url 'customer_app:pro_item_list' %}"> Product </a>
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link" href="{% url 'customer_app:contact' %}"> Contact </a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav d-flex">
-                    <li class="nav-item"><button type="button" class="btn btn-light">
-                        <a href="{% url 'cart_app:cart_list' %}">
-                            <i class="fa-solid fa-cart-shopping"></i></a></button></li>
-                    <li class="nav-item dropdown text-end">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown"
-                                data-bs-display="static" aria-expanded="false">
-                                <i class="fa-solid fa-user"></i>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-lg-end text-center">
-                                <li class="dropdown-item" > {{user}} </li>
-                                <li><a class="dropdown-item" href="{% url 'customer_app:cust_detail_update' pk=user.id %}">Update Profile</a></li>
-                                <li><a class="dropdown-item" href="{% url 'customer_app:login_demo' %}">Logout</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+    
     <div id="head">
         <div class="head-item">
-            <img src="https://img.freepik.com/free-vector/shopping-supermarket-cart-with-grocery-pictogram_1284-11697.jpg?w=500&t=st=1702548368~exp=1702548968~hmac=fbd2cdaeae0987f95f65c08c248d32f97d61ee193b84b88cde26578a01ab1e12"
-                alt="grocery">
+            <img src="https://img.freepik.com/free-vector/shopping-supermarket-cart-with-grocery-pictogram_1284-11697.jpg?w=500&t=st=1702548368~exp=1702548968~hmac=fbd2cdaeae0987f95f65c08c248d32f97d61ee193b84b88cde26578a01ab1e12" alt="grocery">
         </div>
         <div class="head-item">
             <div id="head-title">
@@ -128,6 +113,9 @@
             </div>
         </div>
     </div>
+    <footer>
+     {% include 'partials/_footer.html' %}
+    </footer>
 </body>
 
 </html>

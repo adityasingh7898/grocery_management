@@ -16,6 +16,10 @@
         crossorigin="anonymous"></script>
 
     <style>
+        *{
+            padding: 0%;
+            margin: 0%;
+        }
         h1,h2 {
             text-align: center;
         }
@@ -24,81 +28,77 @@
             font-size: large;
             text-align: center;
         }
-        #contact  {
+         #contact  {
             align-items: center;
             font-size: 40px;
-            padding-left: 45%;
-            /* border: 5px solid red; */
+            margin-left: 70%;
+            margin-top: -44%;
+            margin-bottom: 5%;
+            
+            
+        } 
+        body{
+            
+            color: rgb(221, 215, 215);
+            
+        }
+        #copy{
+            margin-top: 5%; 
+            margin-left: 50%;
+            margin-bottom: 5%;
+            /* margin-right: -4%; */
         }
         
+        .row{
+            margin-top: 5%;
+            /* margin-right: 1%; */
+            margin-bottom: 15%;
+            background-color: rgb(38, 37, 37);
+            padding-bottom: 14%;
+            text-align: center;
+        }
+        .col-sm-6{
+            margin-left: -8%;
+            margin-top: 2%;
+            margin-right: -12%;
+        }
 
     </style>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse d-flex justify-content-between flex-wrap " id="navbarSupportedContent">
-                <ul class="navbar-nav d-flex mb-2 mb-lg-0 m">
-                    <li class="nav-item mx-3">
+    {% include 'partials/_header.html' %}
 
-                        <a class="nav-link active" aria-current="page" href="{% url 'customer_app:customer_home'%}">
-                            Home </a>
+        <div class="row">
+            <h2>If you have any queries, Please contact:</h2>
+            <div class="col-sm-6">
+                <h2 class="text-center m-2">CONTACT US</h2>
+              
+                <p>7729860000</p>
+                <p>9921840000</p>
+                <p>7898510000</p>
+                <p>7286070000</p>
 
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link" href="{% url 'customer_app:contact' %}"> Contact </a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav d-flex">
-                    <li class="nav-item"><button type="button" class="btn btn-light">
-                            <a href="{% url 'cart_app:cart_list' %}">
-                                <i class="fa-solid fa-cart-shopping"></i></a></button></li>
-                    <li class="nav-item dropdown text-end">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown"
-                                data-bs-display="static" aria-expanded="false">
-                                <i class="fa-solid fa-user"></i>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-lg-end">
-                                <li>
-                                    <p class="dropdown-item"> {{user}} </p>
-                                </li>
-                                <li><a class="dropdown-item" href="{% url 'customer_app:cust_detail_update' pk=user.id %}">Update Profile</a></li>
-                                <li><a class="dropdown-item" href="{% url 'customer_app:login_demo' %}">Logout</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
             </div>
+            <div class="col-sm-6">
+                <h2>Send Mail:</h2>
+                <p>sangapatnamsupraja@gmail.com</p>
+                <p>pranay@gmail.com</p>
+                <p>aditya@gmail.com</p>
+                <p>dhanalakshmi@gmail.com</p></div>
+          </div>
+          <div id="contact">
+            <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
         </div>
-    </nav>
+        <div id="copy">
+            <p>@copyright 2023</p>
+        </div>
+       
+        </div>
 
-    <div>
-
-    </div>
-
-    <div>
-        <h1 class="text-center m-2">CONTACT US</h1><br><br>
-        <h2>If you have any queries, Please contact:</h2>
-        <p>7729860000</p>
-        <p>9921840000</p>
-        <p>7898510000</p>
-        <p>7286070000</p>
-
-        <h2>Send Mail:</h2>
-        <p>sangapatnamsupraja@gmail.com</p>
-        <p>pranay@gmail.com</p>
-        <p>aditya@gmail.com</p>
-        <p>dhanalakshmi@gmail.com</p>
-    </div>
-
-    <div id="contact">
-        <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
-        <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-youtube"></i></a>
-    </div>
    
     
 

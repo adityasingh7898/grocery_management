@@ -10,16 +10,21 @@
 {% endblock %}
 
 {% block form %}
+<div class="container">
+<table class="table">
 {{form}}
+</table>
+</div>
 {% endblock %}
 
+
 {% block button %}
-        <input id="submitbutton" type="submit" value="Register">
+        <input type="submit" value="Register" class="btn btn-primary"><br>
 {% endblock %}
 
 
 {% block foot %}
-    <div class="div3    ">
+    <div class="div3">
         <h4>Already User?</h4>
         <a class="login" href="{% url 'customer_app:login_demo' %}"><button  id="login">Login</button></a><br><br>
     </div>
