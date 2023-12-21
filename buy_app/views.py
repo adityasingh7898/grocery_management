@@ -46,4 +46,4 @@ def order_details(request):
 def order_list(request):
     cust_details=buy_model.objects.all()
     items_details=buyed_item_list.objects.all()
-    return render(request=request,template_name='order_details.html',context={'cust_details':cust_details,'items_details':items_details})
+    return render(request=request,template_name='admin_order_details.html',context={'cust_details':cust_details,'items_details':items_details})

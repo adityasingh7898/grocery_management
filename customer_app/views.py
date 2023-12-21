@@ -91,6 +91,13 @@ def customer_logout_view(request):
     messages.success(request,'Logout successful')
     return redirect('/customer_app/login_demo')
 
+
+@login_required(login_url='/customer_app/login_demo')
+def admin_logout_view(request):
+    logout(request)
+    messages.success(request,'Logout successful')
+    return redirect('/customer_app/admin_login')
+
 def forgot_pwd_view(request):
     res=customer_model.objects.all().values_list('email')
     global otp_confirm
