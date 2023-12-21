@@ -80,7 +80,7 @@ def item_list_view(request):
 
 @login_required(login_url='/customer_app/admin_login')
 def item_details_view(request):
-    if (request.user.is_staff or request.user.is_superuser) and request.method=='POST':
+    if request.method=='POST':
         res=product_item.objects.filter(cat_id=request.POST['cat_list'])
         return render(request=request,template_name='cust_prod_list.html',context={'data':res})
     return render(request=request,template_name='item_list.html',context={'data':res})
