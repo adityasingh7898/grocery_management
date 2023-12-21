@@ -1,10 +1,15 @@
+
+
+
+
+
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
-    <li>{% if message.tags == 'success'%} 
-    <h5> {{ message }}</h5>
+    <li style="list-style-type: none;margin-left: -2%;">{% if message.tags == 'success'%} 
+    <h5 style="background-color: rgba(47, 222, 47, 0.578);padding: 1%;padding-left: 5%;"> {{ message }}</h5>
         {%else%}
-        <h5> {{ message }}</h5>
+        <h5 style="background-color: rgba(241, 17, 17, 0.578);padding: 1%;padding-left: 5%;"> {{ message }}</h5>
         {% endif %}
     </li>
     {% endfor %}

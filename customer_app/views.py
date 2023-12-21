@@ -24,6 +24,7 @@ def customer_register_view(request):
             return redirect('/customer_app/login_demo')
         else:
             messages.error(request,"Not Registered.")
+            return redirect('/customer_app/customer_register')
     return render(request=request,template_name='customer_register.html',context={'form':form})
 
 
@@ -40,6 +41,7 @@ def login_demo_view(request):
                 return redirect('/customer_app/customer_home')
             else:
                 messages.error(request,"username or password incorrcet ")
+                return redirect('/customer_app/login_demo')
 
     return render(request=request,template_name='login_demo.html',context={'form':form})
 
@@ -105,7 +107,10 @@ def change_pwd_view(request,pk):
                 customer_model.objects.filter(id=pk).update(password=make_password(form.cleaned_data['enter_new_password']))
                 messages.success(request,"password change Successful")
                 return redirect('/customer_app/login_demo')
-            messages.error(request,"password not chnaged ")
+        else:
+            messages.error(request,"password not changed ")
+            return redirect('/customer_app/change_pwd')
+
     return render(request=request,template_name='create_pwd.html',context={'form':form})
 
 
