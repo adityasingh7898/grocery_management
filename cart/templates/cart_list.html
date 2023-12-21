@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,35 +16,37 @@
         crossorigin="anonymous"></script>
 
     <style>
-        body{
+        body {
             background-color: whitesmoke;
         }
-        button{
+
+        button {
             background-color: rgba(139, 233, 110, 0.866);
             color: black;
             border-radius: 5px;
             padding: 8px;
             font-size: medium;
-            
+
         }
-        #buy_btn{
+
+        #buy_btn {
             margin-top: 2%;
             padding: 10px;
             margin-left: 49%;
             background-color: rgba(147, 231, 20, 0.745);
         }
-        #table1{
+
+        #table1 {
             background-color: rgba(0, 255, 255, 0.352);
         }
 
-        table{
+        table {
             margin-top: 2%;
             text-align: center;
-            margin-left: 38%;
             font-size: large;
         }
 
-        h3{
+        h3 {
             text-align: center;
             font-size: larger;
         }
@@ -57,7 +60,8 @@
             <div class="collapse navbar-collapse d-flex justify-content-between flex-wrap " id="navbarSupportedContent">
                 <ul class="navbar-nav d-flex mb-2 mb-lg-0">
                     <li class="nav-item mx-3">
-                        <a class="nav-link active" aria-current="page" href="{% url 'customer_app:customer_home' %}"> Home </a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'customer_app:customer_home' %}">
+                            Home </a>
                     </li>
                     <li class="nav-item mx-3">
                         <a class="nav-link" href="{% url 'customer_app:pro_item_list' %}"> Product </a>
@@ -67,8 +71,9 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav d-flex">
-                    <li class="nav-item"><button type="button" class="btn btn-light"><a href="{% url 'cart_app:cart_list' %}"><i
-                                class="fa-solid fa-cart-shopping"></i></a></button></li>
+                    <li class="nav-item"><button type="button" class="btn btn-light"><a
+                                href="{% url 'cart_app:cart_list' %}"><i
+                                    class="fa-solid fa-cart-shopping"></i></a></button></li>
                     <li class="nav-item dropdown text-end">
                         <div class="btn-group">
                             <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown"
@@ -76,8 +81,12 @@
                                 <i class="fa-solid fa-user"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-lg-end">
-                                <li><p class="dropdown-item" > {{user}} </p> </li>
-                                <li><a class="dropdown-item" href="{% url 'customer_app:cust_detail_update' pk=user.id %}">Update Profile</a></li>
+                                <li>
+                                    <p class="dropdown-item"> {{user}} </p>
+                                </li>
+                                <li><a class="dropdown-item"
+                                        href="{% url 'customer_app:cust_detail_update' pk=user.id %}">Update Profile</a>
+                                </li>
                                 <li><a class="dropdown-item" href="{% url 'customer_app:login_demo' %}">Logout</a></li>
                             </ul>
                         </div>
@@ -87,36 +96,49 @@
         </div>
     </nav>
 
-    <div>
+    <div class="">
         {% if res %}
-        <h2 class="text-center m-2"> WELCOME {{user}}</h2><br><br>
-        <h3>Your cart</h3>
-        <table border="1px solid" cellpadding="4px">
-            <tr id="table1">
-                <th>Item_id</th>
-                <th>Item_name</th>
-                <th>Item_price</th>
-                <th>Remove</th>
-            </tr>
-            {% for i in res %}
-            <tr>
-                <td>{{i.item_id}}</td>
-                {% for j in prod_data%}
-                    {% if j.item_id == i.item_id %}
+        <h2 class="text-center m-2"> WELCOME {{user}}</h2>
+        
+        <div class="text-center m-5">
+            <h2 class="text-center my-4">YOUR CART</h2>
+            <table class="table bg-body-secondary m-2" >
+                <thead>
+                    <tr>
+                        <!-- <th>Item_id</th> -->
+                        <th>Item_name</th>
+                        <th>Item_price</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                {% for i in res %}
+                <tbody>
+                    <tr>
+                        <!-- <td>{{i.item_id}}</td> -->
+                        {% for j in prod_data%}
+                        {% if j.item_id == i.item_id %}
                         <td>{{j.item_name}}</td>
                         <td>{{j.price}}</td>
-                    {% endif%}
-                {% endfor %}
+                        {% endif%}
+                        {% endfor %}
 
-                <td><a href="{% url 'cart_app:cart_remove' cart_id=i.cart_id %}"> <button >Remove</button></a></td>
-            </tr>
-            {% endfor %}
-            <h3>Total_price:  {{total_price.price__sum}}</h3>
-        </table>
-        <td><a href="{% url 'buy_app:buy_register' total_price=total_price.price__sum %}"><button id="buy_btn">Buy now</button></a></td>
+                        <td><a href="{% url 'cart_app:cart_remove' cart_id=i.cart_id %}"> <button type="button" class="btn btn-danger"> Discard </button></a>
+                        </td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+            <div class="my-4">
+                <h3>Total_price: {{total_price.price__sum}}</h3>
+            </div>
+            <a href="{% url 'buy_app:buy_register' total_price=total_price.price__sum %}"><button type="button"
+                    class="btn btn-success my-2"> Buy Now </button></a>
+        </div>
         {% else %}
-        <h2>Cart is empty</h2>
+        <h2>CART IS EMPTY</h2>
         {% endif %}
     </div>
+
 </body>
+
 </html>

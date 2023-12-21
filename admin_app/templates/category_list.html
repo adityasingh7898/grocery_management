@@ -20,58 +20,42 @@
             margin: 0;
             padding: 0;
         }
-        .card{
-            height: 15rem;
-        }
 
-
-
-        nav{
-            background-color: rgba(224, 222, 222, 0.501);
-            
-        }
-        
-        .ul1{
-            display: flex;
-            width: 50%;
-            justify-content: space-evenly;
-        }
-
-        .btn{
-            font-size: large;
-            margin-top: 20%;
-            margin-bottom: 20%;
-            border-radius: 2%;
-            background-color: rgb(207, 206, 206);
-        }
-
-        .btn:hover{
-            font-size: large;
-            margin-top: 20%;
-            margin-bottom: 20%;
-            background-color: rgb(159, 157, 157);
-            border-radius: 7px;
-        }
         body{
-            background-color: rgba(146, 177, 45, 0.299);
+            background-color: rgba(176, 199, 100, 0.299);
         }
     
     </style>
 </head>
 <body>
-    <nav>
-            
-        <ul class="ul1">
-            <li type="none"><a href="{% url 'admin_app:category_register' %}"><button class="btn">Add Category</button></a></li>
-            <li type="none"><a href="{% url 'admin_app:category_list' %}"><button class="btn">Category List</button></a></li>
-            <li type="none"><a href="{% url 'admin_app:p_list' %}"><button class="btn">Product List</button></a></li>
-            <li type="none"><a href="{% url 'admin_app:p_register' %}"><button class="btn">Add Product</button></a></li>
-            <li type="none"><a href="{% url 'admin_app:all_cust' %}"><button class="btn">Customers List</button></a>
-            </li>
-            <li type="none"><a href="{% url 'buy_app:order_list' %}"><button class="btn">Order List</button></a>
-            </li>
-        </ul>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse d-flex justify-content-between flex-wrap " id="navbarSupportedContent">
+                <ul class="navbar-nav d-flex mb-2 mb-lg-0 m">
+
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="{% url 'admin_app:category_register' %}"> Home </a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="{% url 'admin_app:category_list' %}"> Category List</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="{% url 'admin_app:p_list' %}"> Product List </a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="{% url 'admin_app:p_register' %}"> Add Product </a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="{% url 'admin_app:all_cust' %}"> Customer List </a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="{% url 'buy_app:order_list' %}"> Order List </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
+
     {% for i in messages %}
     <h2>{{i}}</h2>
     {% endfor %}
@@ -90,7 +74,7 @@
                 <h2 class="card-title">{{i.cat_name}}</h2>
                 
                 <a href="{% url 'admin_app:category_update' pk=i.cat_id %}" class="btn btn-success m-3"> UPDATE </a>
-                <a href="{% url 'admin_app:category_delete' pk=i.cat_id %}" class="btn btn-success m-3"> DELETE </a>
+                <a href="{% url 'admin_app:category_delete' pk=i.cat_id %}" class="btn btn-danger m-3"> DELETE </a>
             </div>
         </div>
         {% endfor %}
