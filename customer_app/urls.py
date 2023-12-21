@@ -1,6 +1,5 @@
 from django.urls import path
-from customer_app.views import customer_register_view,customer_list_view,customer_home_view,customer_logout_view,forgot_pwd_view,change_pwd_view,customer_otp_view,login_demo_view, cust_category_list_view,pro_item_list_view,contact_view,cust_detail_update_view
-
+from customer_app.views import *
 app_name = 'customer_app'
 urlpatterns=[
     path(route='customer_register/',view=customer_register_view,name='customer_register'),
@@ -16,5 +15,6 @@ urlpatterns=[
     path(route='change_pwd/<int:pk>/',view=change_pwd_view,name='change_pwd'),
     path(route='login_demo/',view=login_demo_view,name='login_demo'),
     path(route='contact/',view=contact_view,name='contact'),
-    path(route='cust_detail_update/<int:pk>/',view=cust_detail_update_view,name='cust_detail_update')
+    path(route='cust_detail_update/<int:pk>/',view=cust_detail_update_view,name='cust_detail_update'),
+    path(route='admin_login/',view=admin_login_view,name='admin_login')
 ]

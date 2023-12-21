@@ -45,14 +45,36 @@ def login_demo_view(request):
 
     return render(request=request,template_name='login_demo.html',context={'form':form})
 
+
+def admin_login_view(request):
+    form=customer_login_form()
+    if request.method=='POST':
+        form=customer_login_form(request.POST)
+        if form.is_valid():
+            user=authenticate(
+                username=form.cleaned_data['username'],password=form.cleaned_data['password'])
+            if user:
+                login(request,user)
+                if request.user.is_staff:
+                    messages.success(request,"admin Login Successful")
+                    return redirect('/admin_app/category_register/')
+            else:
+                messages.error(request,"username or password incorrcet ")
+                return redirect('/customer_app/login_demo')
+
+    return render(request=request,template_name='login_demo.html',context={'form':form})
+
+@login_required(login_url='/customer_app/login_demo')
 def customer_list_view(request):
     data = customer_model.objects.get(id=request.user.id)
     return render(request=request,template_name='customer_list.html',context={'i':data})
 
+@login_required(login_url='/customer_app/login_demo')
 def cust_category_list_view(request):
     res=category_items.objects.all()
     return render(request=request,template_name='cust_category_list.html',context={'data':res})
 # product list
+@login_required(login_url='/customer_app/login_demo')
 def pro_item_list_view(request):
     res=product_item.objects.all()
     return render(request=request,template_name='cust_pro_list.html',context={'data':res})
@@ -113,10 +135,11 @@ def change_pwd_view(request,pk):
 
     return render(request=request,template_name='create_pwd.html',context={'form':form})
 
-
+@login_required(login_url='/customer_app/login_demo')
 def contact_view(request):
     return render(request=request,template_name='contact.html')
 
+@login_required(login_url='/customer_app/login_demo')
 def cust_detail_update_view(request,pk):
     res=customer_model.objects.get(id=pk)
     form=customer_update_form(instance=res)

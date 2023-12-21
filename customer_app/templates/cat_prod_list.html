@@ -126,7 +126,12 @@
             <div>{{i.item_quantity}}</div>
             <div>{{i.price}}</div>
 
-            <a href="{% url 'cart_app:cart_register' p_id=i.item_id cust_id=user.id iname=i.item_name iprice=i.price %}"><button class="cardButton">Add cart</button></a>
+            {% if i.item_quantity %}
+                <a href="{% url 'cart_app:cart_register' p_id=i.item_id cust_id=user.id iname=i.item_name iprice=i.price %}" class="btn btn-success">Add Cart</a>   
+                
+                {% else %}
+                <h5> Out of stock </h5>
+                {% endif %}
         </div>
 
         {% endfor %}

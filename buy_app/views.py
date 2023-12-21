@@ -30,17 +30,19 @@ def buy_register(request,total_price):
         return redirect('/buy_app/order_details')
     return render(request=request,template_name='buy_confirm.html')
 
+@login_required(login_url='/customer_app/login_demo')
 def buy_view(request):
     prod_data=cart_model.objects.all()
     total_price=cart_model.objects.filter(cust_id=request.user.id).aggregate(Sum('price'))
     print(prod_data)
     return render(request=request,template_name='buy_list.html',context={'prod_data':prod_data,'total_price':total_price})
-
+@login_required(login_url='/customer_app/login_demo')
 def order_details(request):
     cust_details=buy_model.objects.filter(cust_id=request.user.id)
     items_details=buyed_item_list.objects.all()
     return render(request=request,template_name='order_details.html',context={'cust_details':cust_details,'items_details':items_details})
 
+@login_required(login_url='/customer_app/login_demo')
 def order_list(request):
     cust_details=buy_model.objects.all()
     items_details=buyed_item_list.objects.all()

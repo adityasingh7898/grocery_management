@@ -85,7 +85,12 @@
                 <p class="card-text">Desc: {{i.item_desc}}</p>
                 <h5 class="card-title">Quantity: {{i.item_quantity}}</h5>
                 <h5 class="card-title">Price: {{i.price}}</h5>
-                <a href="{% url 'cart_app:cart_register' p_id=i.item_id cust_id=user.id iname=i.item_name iprice=i.price %}" class="btn btn-success">Add Cart</a>
+                {% if i.item_quantity %}
+                <a href="{% url 'cart_app:cart_register' p_id=i.item_id cust_id=user.id iname=i.item_name iprice=i.price %}" class="btn btn-success">Add Cart</a>   
+                
+                {% else %}
+                <h5> Out of stock </h5>
+                {% endif %}
             </div>
         </div>
         {% endfor %}
